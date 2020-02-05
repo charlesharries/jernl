@@ -30,9 +30,11 @@ jobs:
         uses: shivammathur/setup-php@v1
         with:
           php-version: 7.3
-          extension-csv: mbstring, bcmath
+          extensions: mbstring, bcmath
       - name: Composer install
         run: composer install
+      - name: Set application encryption key
+        run: php artisan key:generate
       - name: Run tests
         run: ./vendor/bin/phpunit
   deploy:
@@ -51,7 +53,7 @@ jobs:
         uses: shivammathur/setup-php@master
         with:
           php-version: 7.3
-          extension-csv: mbstring, bcmath
+          extensions: mbstring, bcmath
       - name: Composer install
         run: composer install
       - name: Set up deployer
