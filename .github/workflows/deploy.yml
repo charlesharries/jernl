@@ -33,6 +33,8 @@ jobs:
           extensions: mbstring, bcmath
       - name: Composer install
         run: composer install
+      - name: Create mock .env file
+        run: cp .env.example .env
       - name: Set application encryption key
         run: php artisan key:generate
       - name: Run tests
