@@ -1,0 +1,135 @@
+/* ---------------------------------- Mixins */
+
+@define-mixin t-h1 {
+  font-size: 30px;
+  line-height: calc(42 / 30);
+  letter-spacing: -0.03em;
+  
+  @media (--xs) {
+    font-size: 36px;
+  }
+}
+
+@define-mixin t-h2 {
+  font-size: 26px;
+  line-height: calc(32 / 25);
+  letter-spacing: -0.03em;
+
+  @media (--xs) {
+    font-size: 30px;
+  }
+}
+
+@define-mixin t-h3 {
+  font-size: 22px;
+  line-height: calc(40 / 30);
+
+  @media (--xs) {
+    font-size: 28px;
+  }
+}
+
+@define-mixin t-h4 {
+  font-size: 18px;
+  line-height: calc(28 / 20);
+
+  @media (--desktop) {
+    font-size: 22px;
+  }
+}
+
+@define-mixin t-para {
+  font-size: 16px;
+  line-height: calc(24 / 16);
+  letter-spacing: 0.4px;
+}
+
+@define-mixin t-small {
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  letter-spacing: 0.3px;
+}
+
+/* ---------------------------------- Type settings */
+
+h1,
+.t-h1 {
+  @mixin t-h1;
+}
+
+h2,
+.t-h2 {
+  @mixin t-h2;
+}
+
+h3,
+.t-h3 {
+  @mixin t-h3;
+}
+
+h4,
+.t-h4 {
+  @mixin t-h4;
+}
+
+h5,
+.t-h5 {
+  @mixin t-h4;
+}
+
+p,
+.t-para {
+  @mixin t-para;
+}
+
+code,
+pre,
+.t-mono {
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: -0.02em;
+}
+
+p a {
+  text-decoration: none;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--grey);
+    transition: background var(--trans);
+  }
+
+  &:hover {
+    &::after {
+      background: var(--black);
+    }
+  }
+}
+
+small,
+.t-small {
+  @mixin t-small
+}
+
+.t-red {
+	color: var(--red);
+}
+
+.t-grey {
+  color: var(--dark-grey);
+}
+
+.t-label {
+  text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-weight: 500;
+  font-size: 12px;
+  color: var(--grey);
+  margin-right: 5px;
+}
