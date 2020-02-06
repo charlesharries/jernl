@@ -63,3 +63,7 @@ task('deploy', [
     'deploy:unlock',
     'cleanup',
 ]);
+
+task('reload:php-fpm', function () {
+    run('echo ' . getenv('PASSWORD') . ' | sudo -S service php7.2-fpm restart');
+});
