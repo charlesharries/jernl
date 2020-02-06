@@ -29,19 +29,17 @@ task('deploy:secrets', function () {
     upload('.env', get('deploy_path') . '/shared');
 });
 
-if (getenv('ENVIRONMENT') === 'production') {
-    host('jernl.space')
-        ->hostname('jernl.space')
-        ->stage('production')
-        ->user('charles')
-        ->set('deploy_path', '/var/www/jernl.space/html');
-} elseif (getenv('ENVIRONMENT') === 'development') {
-    host('develop.jernl.space')
-        ->hostname('develop.jernl.space')
-        ->stage('development')
-        ->user('charles')
-        ->set('deploy_path', '/var/www/develop.jernl.space/html');
-}
+host('jernl.space')
+    ->hostname('jernl.space')
+    ->stage('production')
+    ->user('charles')
+    ->set('deploy_path', '/var/www/jernl.space/html');
+    
+host('develop.jernl.space')
+    ->hostname('develop.jernl.space')
+    ->stage('development')
+    ->user('charles')
+    ->set('deploy_path', '/var/www/develop.jernl.space/html');
 
 after('deploy:failed', 'deploy:unlock'); // Unlock after failed deploy
 

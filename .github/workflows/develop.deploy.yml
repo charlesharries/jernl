@@ -65,6 +65,5 @@ jobs:
           ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS_DEVELOP }}
       - name: Deploy
         env:
-          ENVIRONMENT: development
           DOT_ENV: ${{ secrets.DOT_ENV_DEVELOP }}
         run: dep deploy development --tag=${{ env.GITHUB_REF }} -vvv
