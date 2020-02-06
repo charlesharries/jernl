@@ -58,8 +58,6 @@ jobs:
           extensions: mbstring, bcmath
       - name: Composer install
         run: composer install
-      - name: Show secrets
-        run: echo ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Set up deployer
         uses: atymic/deployer-php-action@master
         with:
