@@ -30,30 +30,30 @@ task('deploy:secrets', function () {
 });
 
 host('jernl.space')
-    ->hostname('178.62.57.103')
+    ->hostname('jernl.space')
     ->stage('production')
     ->user('charles')
     ->set('deploy_path', '/var/www/jernl.space/html');
 
-    after('deploy:failed', 'deploy:unlock'); // Unlock after failed deploy
+after('deploy:failed', 'deploy:unlock'); // Unlock after failed deploy
 
-    desc('Deploy the application');
-    task('deploy', [
-        'deploy:info',
-        'deploy:prepare',
-        'deploy:lock',
-        'deploy:release',
-        'rsync', // Deploy code & built assets
-        'deploy:secrets', // Deploy secrets
-        'deploy:shared',
-        'deploy:vendors',
-        'deploy:writable',
-        'artisan:storage:link', // |
-        'artisan:view:cache',   // |
-        'artisan:config:cache', // | Laravel specific steps 
-        'artisan:optimize',     // |
-        'artisan:migrate',      // |
-        'deploy:symlink',
-        'deploy:unlock',
-        'cleanup',
-    ]);
+desc('Deploy the application');
+task('deploy', [
+    'deploy:info',
+    'deploy:prepare',
+    'deploy:lock',
+    'deploy:release',
+    'rsync', // Deploy code & built assets
+    'deploy:secrets', // Deploy secrets
+    'deploy:shared',
+    'deploy:vendors',
+    'deploy:writable',
+    'artisan:storage:link', // |
+    'artisan:view:cache',   // |
+    'artisan:config:cache', // | Laravel specific steps 
+    'artisan:optimize',     // |
+    'artisan:migrate',      // |
+    'deploy:symlink',
+    'deploy:unlock',
+    'cleanup',
+]);
