@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,400i,700&display=swap');
+
+:root {
+	/* Colors */
+	--white: #fff;
+	--black: #000;
+	--light-grey: #EDF2F7;
+	--grey: #A0AEC0;
+	--dark-grey: #4A5568;
+	--off-black: #2D3748;
+
+	/* Fonts */
+	--font: 'SF Mono', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  --mono: 'SF Mono', monospace;
+
+	/* Transitions */
+	--trans: 0.25s ease;
+
+	/* Spacings */
+	--spacing: 15px;
+	--spacing-2: calc(var(--spacing) * 2);
+	--spacing-3: calc(var(--spacing) * 3);
+	--spacing-4: calc(var(--spacing) * 4);
+	--spacing-5: calc(var(--spacing) * 5);
+	--spacing-6: calc(var(--spacing) * 6);
+
+	/* Grid settings */
+  --Grid__width: 100%;
+  --Grid__columns: 12;
+  --Grid__gutter: var(--spacing-3);
+  --Grid__maxWidth--content: 1280px;
+  --Grid__padding--sm: 15px;
+  --Grid__padding--lg: 30px;
+
+  --Grid__gutter__total--desktop: calc(
+    var(--Grid__gutter) * calc(var(--Grid__columns) - 1)
+  );
+  --Grid__remainder--desktop: calc(
+    var(--Grid__maxWidth--content) - var(--Grid__gutter__total--desktop)
+  );
+  --Grid__segment: calc(var(--Grid__remainder--desktop) / var(--Grid__columns));
+
+  /* Grid column width - Desktop */
+  --Grid__column: calc(var(--Grid__segment) + var(--Grid__gutter));
+
+  /* Grid max-width */
+  --Grid__maxWidth--grid: calc(
+    var(--Grid__maxWidth--content) + calc(var(--Grid__padding--lg) * 2)
+  );
+}
+
+/* Mixins */
+@define-mixin gridItemWidth $size: 12 {
+  width: calc($size / var(--Grid__columns) * 100%);
+}
+
+@define-mixin gridItemOffset $size: 12 {
+  margin-left: calc($size / var(--Grid__columns) * 100%);
+}
+
+/* Breakpoints */
+@custom-media --desktop (min-width: 800px);
+@custom-media --container (min-width: var(--Grid__maxWidth--grid));

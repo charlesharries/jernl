@@ -1,0 +1,13 @@
+.container {
+  width: var(--Grid__width);
+  max-width: var(--Grid__maxWidth--grid);
+  padding-right: var(--Grid__padding--sm);
+  padding-left: var(--Grid__padding--sm);
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (--desktop) {
+    padding-right: var(--Grid__padding--lg);
+    padding-left: var(--Grid__padding--lg);
+  }
+}
