@@ -1,8 +1,8 @@
-name: Deploy production
+name: Deploy staging
 
 on:
   push:
-    branches: master
+    branches: develop
 
 jobs:
   build-js:
@@ -43,7 +43,7 @@ jobs:
     name: Deploy to production
     runs-on: ubuntu-latest
     needs: [build-js, test-php]
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/develop'
     steps:
       - uses: actions/checkout@v1
       - name: Download build assets
@@ -65,6 +65,6 @@ jobs:
           ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
       - name: Deploy
         env:
-          ENVIRONMENT: production
-          DOT_ENV: ${{ secrets.DOT_ENV }}
+          ENVIRONMENT: development
+          DOT_ENV: ${{ secrets.DOT_ENV_DEVELOP }}
         run: dep deploy production --tag=${{ env.GITHUB_REF }} -vvv

@@ -29,11 +29,19 @@ task('deploy:secrets', function () {
     upload('.env', get('deploy_path') . '/shared');
 });
 
-host('jernl.space')
-    ->hostname('jernl.space')
-    ->stage('production')
-    ->user('charles')
-    ->set('deploy_path', '/var/www/jernl.space/html');
+if (getenv('ENVIRONMENT') === 'production') {
+    host('jernl.space')
+        ->hostname('jernl.space')
+        ->stage('production')
+        ->user('charles')
+        ->set('deploy_path', '/var/www/jernl.space/html');
+} elseif (getenv('ENVIRONMENT') === 'development') {
+    host('develop.jernl.space')
+        ->hostname('develop.jernl.space')
+        ->stage('development')
+        ->user('charles')
+        ->set('deploy_path', '/var/www/develop.jernl.space/html');
+}
 
 after('deploy:failed', 'deploy:unlock'); // Unlock after failed deploy
 
@@ -50,7 +58,7 @@ task('deploy', [
     'deploy:writable',
     'artisan:storage:link', // |
     'artisan:view:cache',   // |
-    'artisan:config:cache', // | Laravel specific steps 
+    'artisan:config:cache', // | Laravel specific steps
     'artisan:optimize',     // |
     'artisan:migrate',      // |
     'deploy:symlink',
