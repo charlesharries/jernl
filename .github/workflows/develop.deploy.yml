@@ -68,4 +68,4 @@ jobs:
           DOT_ENV: ${{ secrets.DOT_ENV_DEVELOP }}
         run: dep deploy development --tag=${{ env.GITHUB_REF }} -vvv
       - name: Restart PHP
-        run: echo ${{ secrets.PASSWORD }} | sudo -S service php7.2-fpm restart
+        run: echo "" | sudo -S service php7.2-fpm reload
