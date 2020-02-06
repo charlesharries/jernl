@@ -29,6 +29,10 @@ task('deploy:secrets', function () {
     upload('.env', get('deploy_path') . '/shared');
 });
 
+task('reload:php-fpm', function () {
+    run('echo ' . getenv('PASSWORD') . ' | sudo -S service php7.2-fpm restart');
+});
+
 host('jernl.space')
     ->hostname('jernl.space')
     ->stage('production')
@@ -62,8 +66,5 @@ task('deploy', [
     'deploy:symlink',
     'deploy:unlock',
     'cleanup',
+    'reload:php-fpm'
 ]);
-
-task('reload:php-fpm', function () {
-    run('echo ' . getenv('PASSWORD') . ' | sudo -S service php7.2-fpm restart');
-});
