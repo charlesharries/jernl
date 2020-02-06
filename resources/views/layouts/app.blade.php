@@ -17,7 +17,7 @@
 </head>
 <body>
     <div id="app">
-        <nav>
+        {{-- <nav>
             <ul>
                 @guest
                     <li>
@@ -39,9 +39,9 @@
                     </li>
                 @endguest
             </ul>
-        </nav>
+        </nav> --}}
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>

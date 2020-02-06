@@ -8,12 +8,12 @@
 @import './settings/type';
 
 /* Layout */
-/* @import './layout/page';
+@import './layout/page';
 @import './layout/container';
-@import './layout/rhythm';
 @import './layout/grid';
-@import './layout/show-page.css';
-@import './layout/edit-page.css'; */
+
+/* Pages */
+@import './pages/home';
 
 /* Utilities */
 /* @import './utilities/display'; */
