@@ -30,7 +30,7 @@ task('deploy:secrets', function () {
 });
 
 task('reload:php-fpm', function () {
-    run('echo ' . getenv('PASSWORD') . ' | sudo -S service php7.2-fpm restart');
+    run('sudo -S service php7.2-fpm restart');
 });
 
 host('jernl.space')
