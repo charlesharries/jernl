@@ -32,7 +32,7 @@
                         @endguest
                     </ul>
                 </nav>
-                <h3>It's a journal. Click on a day, write your entry. Keep the streak going. Let's go. We're trying something</h3>
+                <h3>It's a journal. Click on a day, write your entry. Keep the streak going.</h3>
             </div>
         </div>
     </div>
