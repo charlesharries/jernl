@@ -1,4 +1,6 @@
+/* eslint-disable global-require */
 const mix = require('laravel-mix');
+require('laravel-mix-postcss-config');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +13,18 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix
+  .js('resources/js/app.js', 'public/js')
+  .postCss('resources/css/main.css', 'public/css')
+  .postCssConfig({
+    plugins: [
+      require('postcss-import')({}),
+      require('postcss-mixins')({}),
+      require('postcss-calc')({}),
+      require('postcss-nested')({}),
+      require('postcss-color-mod-function')({}),
+      require('postcss-preset-env')({
+        stage: 1,
+      }),
+    ],
+  });

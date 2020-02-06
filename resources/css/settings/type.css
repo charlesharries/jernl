@@ -1,0 +1,130 @@
+/* Mixins */
+
+@define-mixin text-h1 {
+  font-size: 72px;
+  line-height: calc(42 / 30);
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  
+  @media (--desktop) {
+    font-size: 96px;
+  }
+}
+
+@define-mixin text-h2 {
+  font-size: 26px;
+  line-height: calc(32 / 25);
+  letter-spacing: -0.03em;
+  font-weight: 700;
+
+  @media (--desktop) {
+    font-size: 30px;
+  }
+}
+
+@define-mixin text-h3 {
+  font-size: 22px;
+  line-height: calc(40 / 30);
+  font-weight: 400;
+
+  @media (--desktop) {
+    font-size: 28px;
+  }
+}
+
+@define-mixin text-h4 {
+  font-size: 18px;
+  line-height: calc(28 / 20);
+  font-weight: 400;
+
+  @media (--desktop) {
+    font-size: 22px;
+  }
+}
+
+@define-mixin text-base {
+  font-size: 16px;
+  line-height: calc(24 / 16);
+  letter-spacing: 0.4px;
+  font-weight: 400;
+}
+
+@define-mixin text-small {
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  letter-spacing: 0.3px;
+}
+
+/* ---------------------------------- Type settings */
+
+h1,
+.text-h1 {
+  @mixin text-h1;
+}
+
+h2,
+.text-h2 {
+  @mixin text-h2;
+}
+
+h3,
+.text-h3 {
+  @mixin text-h3;
+}
+
+h4,
+.text-h4 {
+  @mixin text-h4;
+}
+
+p,
+.text-base {
+  @mixin text-base;
+}
+
+code,
+pre,
+.text-mono {
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: -0.02em;
+}
+
+p a {
+  text-decoration: none;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--grey);
+    transition: background var(--trans);
+  }
+
+  &:hover {
+    &::after {
+      background: var(--black);
+    }
+  }
+}
+
+small,
+.text-small {
+  @mixin text-small
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-strong {
+  font-weight: 700;
+}
+
+.text-grey {
+  color: var(--dark-grey);
+}
