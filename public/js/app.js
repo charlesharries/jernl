@@ -19289,10 +19289,44 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _util_Router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util/Router */ "./resources/js/util/Router.js");
+/* harmony import */ var _routes_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routes/common */ "./resources/js/routes/common.js");
+/* harmony import */ var _routes_createEntry__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./routes/createEntry */ "./resources/js/routes/createEntry.js");
+
+
+
+/**
+ * Add an event listener for when the dom is ready. Basically
+ * just copies jQuery's $(document).ready().
+ *
+ * @link https://stackoverflow.com/questions/9899372/pure-javascript-equivalent-of-jquerys-ready-how-to-call-a-function-when-t
+ * @param {function} fn Function you want to run when dom is ready
+ */
+
+function domReady(fn) {
+  // see if DOM is already available
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    // call on next available tick
+    setTimeout(fn, 1);
+  } else {
+    document.addEventListener('DOMContentLoaded', fn);
+  }
+}
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+var routes = new _util_Router__WEBPACK_IMPORTED_MODULE_0__["default"]({
+  common: _routes_common__WEBPACK_IMPORTED_MODULE_1__["default"],
+  createEntry: _routes_createEntry__WEBPACK_IMPORTED_MODULE_2__["default"]
+});
+domReady(function () {
+  return routes.loadEvents();
+});
 
 /***/ }),
 
@@ -19325,6 +19359,199 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/routes/common.js":
+/*!***************************************!*\
+  !*** ./resources/js/routes/common.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  init: function init() {
+    console.log('common/init');
+  },
+  "finally": function _finally() {
+    console.log('common/finally');
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/routes/createEntry.js":
+/*!********************************************!*\
+  !*** ./resources/js/routes/createEntry.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  init: function init() {
+    var observe;
+
+    if (window.attachEvent) {
+      observe = function observe(element, event, handler) {
+        element.attachEvent("on".concat(event), handler);
+      };
+    } else {
+      observe = function observe(element, event, handler) {
+        element.addEventListener(event, handler, false);
+      };
+    }
+
+    function initTextarea() {
+      var texts = document.querySelectorAll('[data-autoresize]');
+
+      function resize(e) {
+        e.target.style.height = "".concat(e.target.scrollHeight, "px");
+      }
+
+      texts.forEach(function (text) {
+        observe(text, 'input', resize);
+        resize({
+          target: text
+        });
+      });
+    }
+
+    initTextarea();
+  },
+  "finally": function _finally() {
+    console.log('createEntry/finally');
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/util/Router.js":
+/*!*************************************!*\
+  !*** ./resources/js/util/Router.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _camelCase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./camelCase */ "./resources/js/util/camelCase.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+/**
+ * DOM-based Routing
+ *
+ * Based on {@link http://goo.gl/EUTi53|Markup-based Unobtrusive Comprehensive DOM-ready Execution} by Paul Irish
+ *
+ * The routing fires all common scripts, followed by the page specific scripts.
+ * Add additional events for more control over timing e.g. a finalize event
+ *
+ * @link https://github.com/roots/sage/blob/master/resources/assets/scripts/util/Router.js
+ */
+
+var Router =
+/*#__PURE__*/
+function () {
+  /**
+   * Create a new Router
+   * @param {Object} routes
+   */
+  function Router(routes) {
+    _classCallCheck(this, Router);
+
+    this.routes = routes;
+  }
+  /**
+   * Fire Router events
+   * @param {string} route DOM-based route derived from body classes (`<body class="...">`)
+   * @param {string} [event] Events on the route. By default, `init` and `finalize` events are called.
+   * @param {string} [arg] Any custom argument to be passed to the event.
+   */
+
+
+  _createClass(Router, [{
+    key: "fire",
+    value: function fire(route) {
+      var event = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'init';
+      var arg = arguments.length > 2 ? arguments[2] : undefined;
+      document.dispatchEvent(new CustomEvent('routed', {
+        bubbles: true,
+        detail: {
+          route: route,
+          fn: event
+        }
+      }));
+      var fire = route !== '' && this.routes[route] && typeof this.routes[route][event] === 'function';
+
+      if (fire) {
+        this.routes[route][event](arg);
+      }
+    }
+    /**
+     * Automatically load and fire Router events
+     *
+     * Events are fired in the following order:
+     *  * common init
+     *  * page-specific init
+     *  * page-specific finalize
+     *  * common finalize
+     */
+
+  }, {
+    key: "loadEvents",
+    value: function loadEvents() {
+      var _this = this;
+
+      // Fire common init JS
+      this.fire('common'); // Fire page-specific init JS, and then finalize JS
+
+      document.body.className.toLowerCase().replace(/-/g, '_').split(/\s+/).map(_camelCase__WEBPACK_IMPORTED_MODULE_0__["default"]).forEach(function (className) {
+        _this.fire(className);
+
+        _this.fire(className, 'finally');
+      }); // Fire common finalize JS
+
+      this.fire('common', 'finally');
+    }
+  }]);
+
+  return Router;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Router);
+
+/***/ }),
+
+/***/ "./resources/js/util/camelCase.js":
+/*!****************************************!*\
+  !*** ./resources/js/util/camelCase.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/**
+ * The most terrible camelizer on the internet, guaranteed!
+ *
+ * @link https://github.com/roots/sage/blob/master/resources/assets/scripts/util/camelCase.js
+ *
+ * @param {string} str String that isn't camel-case, e.g., CAMeL_CaSEiS-harD
+ * @return {string} String converted to camel-case, e.g., camelCaseIsHard
+ */
+/* harmony default export */ __webpack_exports__["default"] = (function (str) {
+  return "".concat(str.charAt(0).toLowerCase()).concat(str.replace(/[\W_]/g, '|').split('|').map(function (part) {
+    return "".concat(part.charAt(0).toUpperCase()).concat(part.slice(1));
+  }).join('').slice(1));
+});
 
 /***/ }),
 

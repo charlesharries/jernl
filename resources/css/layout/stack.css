@@ -12,3 +12,15 @@
 		margin-top: var(--spacing);
 	}
 }
+
+.stack-md {
+	& > * + * {
+		margin-top: var(--spacing-2);
+	}
+}
+
+.stack-lg {
+	& > * + * {
+		margin-top: var(--spacing-3);
+	}
+}
