@@ -1,0 +1,24 @@
+.button {
+	display: inline-block;
+	width: auto;
+	padding: 10px 20px;
+	border: 1px solid var(--light-grey);
+	color: var(--off-black);
+	border-radius: 3px;
+}
+
+.button--link {
+	position: relative;
+	border: none;
+	padding: 0;
+
+	&::after {
+		position: absolute;
+		content: '';
+		height: 1px;
+		width: 100%;
+		left: 0;
+		bottom: -8px;
+		background-color: var(--grey);
+	}
+}
