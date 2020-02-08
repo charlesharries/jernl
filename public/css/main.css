@@ -571,11 +571,14 @@ pre,
   font-size: 14px;
   letter-spacing: -0.02em;
 }
-p a {
+p a,
+.button--link {
   text-decoration: none;
   position: relative;
+  border: none;
+  padding: 0;
 }
-p a::after {
+p a::after, .button--link::after {
     content: '';
     position: absolute;
     bottom: -3px;
@@ -587,7 +590,7 @@ p a::after {
     transition: background 0.25s ease;
     transition: background var(--trans);
   }
-p a:hover::after {
+p a:hover::after, .button--link:hover::after {
       background: #000;
       background: var(--black);
     }
@@ -849,22 +852,9 @@ body {
 	color: var(--off-black);
 	border-radius: 3px;
 }
-.button--link {
-	position: relative;
-	border: none;
-	padding: 0;
-}
-.button--link::after {
-		position: absolute;
-		content: '';
-		height: 1px;
-		width: 100%;
-		left: 0;
-		bottom: -8px;
-		background-color: #A0AEC0;
-		background-color: var(--grey);
-	}
 .Day {
+	display: flex;
+	align-items: center;
 	background-color: #EDF2F7;
 	background-color: var(--light-grey);
 	padding: 15px;
@@ -881,4 +871,8 @@ body {
 	background: rgba(255, 255, 255, 0.7);
 	letter-spacing: -0.05em;
 	padding-right: 2px;
+}
+.Day__link {
+	margin-left: calc(15px*2);
+	margin-left: var(--spacing-2);
 }

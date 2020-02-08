@@ -1,4 +1,6 @@
 .Day {
+	display: flex;
+	align-items: center;
 	background-color: var(--light-grey);
 	padding: var(--spacing);
 	border-radius: 3px;
@@ -14,4 +16,8 @@
 	background: color-mod(var(--white) a(0.7));
 	letter-spacing: -0.05em;
 	padding-right: 2px;
+}
+
+.Day__link {
+	margin-left: var(--spacing-2);
 }

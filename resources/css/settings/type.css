@@ -90,9 +90,12 @@ pre,
   letter-spacing: -0.02em;
 }
 
-p a {
+p a,
+.button--link {
   text-decoration: none;
   position: relative;
+  border: none;
+  padding: 0;
 
   &::after {
     content: '';
