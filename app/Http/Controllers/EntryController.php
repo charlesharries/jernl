@@ -24,7 +24,9 @@ class EntryController extends Controller
      */
     public function create()
     {
-        //
+        $day = new \DateTime(request()->date);
+
+        return view('entries.create')->with(compact('day'));
     }
 
     /**
@@ -35,7 +37,15 @@ class EntryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attributes = request()->validate([
+            'title' => 'max:255',
+            'content' => 'required',
+            'date' => 'required|date'
+        ]);
+
+        Entry::create($attributes + ['user_id' => auth()->id()]);
+
+        return redirect('/calendar');
     }
 
     /**
@@ -57,7 +67,7 @@ class EntryController extends Controller
      */
     public function edit(Entry $entry)
     {
-        //
+        return view('entries.edit')->with(compact('entry'));
     }
 
     /**
@@ -69,7 +79,14 @@ class EntryController extends Controller
      */
     public function update(Request $request, Entry $entry)
     {
-        //
+        $attributes = $request->validate([
+            'title' => 'max:255',
+            'content' => 'required'
+        ]);
+
+        $entry->update($attributes);
+
+        return redirect('/calendar');
     }
 
     /**

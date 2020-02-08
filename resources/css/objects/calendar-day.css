@@ -1,9 +1,18 @@
 .Day {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	background-color: var(--light-grey);
 	padding: var(--spacing);
 	border-radius: 3px;
+
+	&--withEntries {
+		background-color: var(--light-green);
+	}
+}
+
+.Day__date {
+	margin-top: -3px;
+	margin-bottom: -3px;
 }
 
 .Day__date__number {
@@ -20,4 +29,14 @@
 
 .Day__link {
 	margin-left: var(--spacing-2);
+}
+
+.Day__entries {
+	margin-left: var(--spacing-2);
+}
+
+.Day__entry a {
+	&::after {
+		display: none;
+	}
 }

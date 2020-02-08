@@ -15,7 +15,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="@yield('page-slug')">
     <div id="app">
         {{-- <nav>
             <ul>

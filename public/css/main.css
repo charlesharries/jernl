@@ -469,6 +469,8 @@ html {
 
   --red: #FC8181;
 
+  --light-green: #C6F6D5;
+
 	/* Fonts */
 	--font: 'SF Mono', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   --mono: 'SF Mono', monospace;
@@ -572,13 +574,13 @@ pre,
   letter-spacing: -0.02em;
 }
 p a,
-.button--link {
+.link {
   text-decoration: none;
   position: relative;
   border: none;
   padding: 0;
 }
-p a::after, .button--link::after {
+p a::after, .link::after {
     content: '';
     position: absolute;
     bottom: -3px;
@@ -590,7 +592,7 @@ p a::after, .button--link::after {
     transition: background 0.25s ease;
     transition: background var(--trans);
   }
-p a:hover::after, .button--link:hover::after {
+p a:hover::after, .link:hover::after {
       background: #000;
       background: var(--black);
     }
@@ -729,6 +731,14 @@ body {
 		margin-top: 15px;
 		margin-top: var(--spacing);
 	}
+.stack-md > * + * {
+		margin-top: calc(15px*2);
+		margin-top: var(--spacing-2);
+	}
+.stack-lg > * + * {
+		margin-top: calc(15px*3);
+		margin-top: var(--spacing-3);
+	}
 /* Pages */
 .Home__wrapper {
 	min-height: 100vh;
@@ -766,6 +776,16 @@ body {
 	padding-bottom: calc(15px*3);
 	padding-bottom: var(--spacing-3);
 }
+.CreateEntry {
+	padding-top: calc(15px*3);
+	padding-top: var(--spacing-3);
+	padding-bottom: calc(15px*3);
+	padding-bottom: var(--spacing-3);
+}
+.CreateEntry__main {
+	width: calc(8/12*100%);
+	width: calc(8/var(--Grid__columns)*100%);
+}
 /* Utilities */
 /* @import './utilities/display'; */
 /* Objects */
@@ -797,6 +817,9 @@ body {
 .border-top-thick {
 	border-top-width: 4px;
 }
+.field__label {
+	display: block;
+}
 .field__label + .field__control {
 		margin-top: 4px;
 	}
@@ -808,13 +831,27 @@ body {
 .field__input {
 	background-color: #EDF2F7;
 	background-color: var(--light-grey);
-	padding: 8px;
+	padding-bottom: 8px;
+	padding-left: 12px;
+	padding-right: 12px;
 	padding-top: 10px;
 	border-radius: 3px;
+	width: 100%;
+	max-width: 100%;
+	line-height: 1.375;
 }
 .field__input--invalid {
 		border: 1px solid #FC8181;
 		border: 1px solid var(--red);
+	}
+.field--content .field__label {
+		opacity: 0;
+	}
+.field--content .field__input {
+		background-color: transparent;
+		padding-left: 0;
+		padding-right: 0;
+		padding-bottom: 50vh;
 	}
 .field__input--checkbox {
 	position: relative;
@@ -842,6 +879,11 @@ body {
 	flex-direction: column;
 	align-items: flex-start;
 }
+.field-lg .field__input {
+		font-size: 24px;
+		line-height: 1.33333;
+		font-weight: 700;
+	}
 .button {
 	display: inline-block;
 	width: auto;
@@ -854,12 +896,20 @@ body {
 }
 .Day {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	background-color: #EDF2F7;
 	background-color: var(--light-grey);
 	padding: 15px;
 	padding: var(--spacing);
 	border-radius: 3px;
+}
+.Day--withEntries {
+		background-color: #C6F6D5;
+		background-color: var(--light-green);
+	}
+.Day__date {
+	margin-top: -3px;
+	margin-bottom: -3px;
 }
 .Day__date__number {
 	display: inline-flex;
@@ -876,3 +926,10 @@ body {
 	margin-left: calc(15px*2);
 	margin-left: var(--spacing-2);
 }
+.Day__entries {
+	margin-left: calc(15px*2);
+	margin-left: var(--spacing-2);
+}
+.Day__entry a::after {
+		display: none;
+	}

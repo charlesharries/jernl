@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Entry;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -40,5 +41,12 @@ class User extends Authenticatable
     public function entries()
     {
         return $this->hasMany('App\Entry');
+    }
+
+    public function entriesOn($day)
+    {
+        return Entry::where(['user_id' => auth()->id()])
+            ->whereDate('date', '=', $day)
+            ->get();
     }
 }
