@@ -16,6 +16,7 @@
 /* Pages */
 @import './pages/home';
 @import './pages/login';
+@import './pages/calendar';
 
 /* Utilities */
 /* @import './utilities/display'; */
@@ -25,3 +26,4 @@
 @import './objects/borders';
 @import './objects/fields';
 @import './objects/buttons';
+@import './objects/calendar-day';

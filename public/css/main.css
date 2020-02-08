@@ -757,6 +757,12 @@ body {
 .Login .cover {
 	max-width: 600px;
 }
+.Calendar {
+	padding-top: calc(15px*3);
+	padding-top: var(--spacing-3);
+	padding-bottom: calc(15px*3);
+	padding-bottom: var(--spacing-3);
+}
 /* Utilities */
 /* @import './utilities/display'; */
 /* Objects */
@@ -858,3 +864,21 @@ body {
 		background-color: #A0AEC0;
 		background-color: var(--grey);
 	}
+.Day {
+	background-color: #EDF2F7;
+	background-color: var(--light-grey);
+	padding: 15px;
+	padding: var(--spacing);
+	border-radius: 3px;
+}
+.Day__date__number {
+	display: inline-flex;
+	height: 30px;
+	width: 30px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100px;
+	background: rgba(255, 255, 255, 0.7);
+	letter-spacing: -0.05em;
+	padding-right: 2px;
+}

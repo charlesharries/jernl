@@ -1,0 +1,17 @@
+.Day {
+	background-color: var(--light-grey);
+	padding: var(--spacing);
+	border-radius: 3px;
+}
+
+.Day__date__number {
+	display: inline-flex;
+	height: 30px;
+	width: 30px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100px;
+	background: color-mod(var(--white) a(0.7));
+	letter-spacing: -0.05em;
+	padding-right: 2px;
+}
