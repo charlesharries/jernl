@@ -16,4 +16,4 @@ Route::get('/', 'PageController@index');
 Auth::routes();
 
 Route::get('/calendar', 'HomeController@index')->name('calendar');
-Route::resource('entries', 'EntryController');
+Route::resource('entries', 'EntryController')->middleware('can:update,entry');

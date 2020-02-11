@@ -22,12 +22,7 @@
                             @endif
                         @else
                             <li>
-                                <form action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-        
-                                    <button type="submit" class="nav__link text-h3">Logout</button>
-                                </form>
+                                <log-out />
                             </li>
                         @endguest
                     </ul>

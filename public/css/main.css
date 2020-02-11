@@ -739,6 +739,12 @@ body {
 		margin-top: calc(15px*3);
 		margin-top: var(--spacing-3);
 	}
+.flex {
+	display: flex;
+}
+.space-between {
+	justify-content: space-between;
+}
 /* Pages */
 .Home__wrapper {
 	min-height: 100vh;
@@ -818,7 +824,7 @@ body {
 	border-top-width: 4px;
 }
 .field__label {
-	display: block;
+	display: inline-block;
 }
 .field__label + .field__control {
 		margin-top: 4px;
