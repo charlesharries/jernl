@@ -3,7 +3,11 @@
 @section('content')
 <div class="Calendar">
     <div class="container">
-        <h1 class="text-h3">Your Journal</h1>
+        <div class="flex space-between">
+            <h1 class="text-h3">Your Journal</h1>
+
+            <log-out />
+        </div>
 
         <h3 class="text-h1">{{ $month->getStartDate()->format('F') }}</h3>
 
