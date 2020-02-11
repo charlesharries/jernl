@@ -41,7 +41,7 @@ class EntryPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
