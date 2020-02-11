@@ -29,6 +29,8 @@
 }
 
 .field--content {
+	padding-bottom: 50vh;
+
 	.field__label {
 		opacity: 0;
 	}
@@ -37,7 +39,8 @@
 		background-color: transparent;
 		padding-left: 0;
 		padding-right: 0;
-		padding-bottom: 50vh;
+		resize: none;
+		white-space: pre-wrap;
 	}
 }
 
