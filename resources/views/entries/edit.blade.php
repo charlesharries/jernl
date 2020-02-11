@@ -29,7 +29,7 @@
                     <label class="field__label" for="content">Content</label>
 
                     <div class="field__control">
-                        <textarea name="content" id="content" class="field__input" rows="1"
+                        <textarea name="content" id="content" class="field__input" rows="5"
                             data-autoresize>{{ $entry->content }}</textarea>
                     </div>
                 </div>

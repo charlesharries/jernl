@@ -1,3 +1,8 @@
+@php
+    $startDay = (int)$month->getStartDate()->format('N');
+    $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
@@ -11,9 +16,21 @@
 
         <h3 class="text-h1">{{ $month->getStartDate()->format('F') }}</h3>
 
-        <div class="Calendar__days stack">
+        <div class="Calendar__days grid">
+            @for($i = 0; $i < 7; $i++)
+                <div class="Calendar__heading grid__item">
+                    <h4>{{ $days[$i] }}</h4>
+                </div>
+            @endfor
+
+            @for($i = 0; $i < $startDay - 1; $i++)
+                <div class="grid__item"></div>
+            @endfor
+
             @foreach($month as $day)
-                <calendar-day :day="$day" />
+                <div class="grid__item">
+                    <calendar-day :day="$day" />
+                </div>
             @endforeach
         </div>
     </div>
