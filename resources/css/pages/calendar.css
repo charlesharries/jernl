@@ -2,3 +2,24 @@
 	padding-top: var(--spacing-3);
 	padding-bottom: var(--spacing-3);
 }
+
+.Calendar__days {
+	& > * {
+		@mixin gridItemWidth 12/7;
+
+		&:nth-child(7n + 6),
+		&:nth-child(7n + 7) {
+			.Day {
+				border: 1px solid color-mod(var(--black) a(0.1));
+			}
+		}
+	}
+}
+
+.Calendar__heading {
+	& > * {
+		padding-bottom: calc(0.5 * var(--spacing));
+		border-bottom: 1.5px solid var(--off-black);
+		margin-bottom: var(--spacing);
+	}
+}
