@@ -30,14 +30,14 @@
 
                         <div class="field__control">
                             <textarea name="content" id="content" class="field__input field__input--content" placeholder="What did you get up to today?"
-                                rows="2" data-autoresize>{{ old('content') }}</textarea>
+                                rows="5" data-autoresize>{{ old('content') }}</textarea>
                         </div>
                     </div>
                     
                     <input type="hidden" name="date" value="{{ $day->format('Y-m-d') }}" />
 					
 					<div class="field">
-						<button class="button">Save</button>
+						<button class="button button--grey">Save</button>
 					</div>
                 </form>
             </div>
