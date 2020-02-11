@@ -1,0 +1,8 @@
+.border-top {
+	padding-top: 5px;
+	border-top: 1px solid var(--off-black);
+}
+
+.border-top-thick {
+	border-top-width: 4px;
+}

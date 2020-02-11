@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $posts = auth()->user()->posts;
+
+        $first = new \DateTime('first day of this month');
+        $last = new \DateTime('last day of this month');
+        $month = new \DatePeriod($first, (new \DateInterval('P1D')), $last->modify('+1 day'));
+
+        return view('calendar')->with(compact('posts', 'month'));
     }
 }
