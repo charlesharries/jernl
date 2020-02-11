@@ -1,5 +1,5 @@
 .field__label {
-	display: block;
+	display: inline-block;
 
 	& + .field__control {
 		margin-top: 4px;
