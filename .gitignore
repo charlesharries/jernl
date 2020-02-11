@@ -2,7 +2,8 @@
 /public/hot
 /public/storage
 /public/css/*
-public/js/*
+/public/js/*
+/notes
 /storage/*.key
 /vendor
 .env
