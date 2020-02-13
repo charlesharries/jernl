@@ -21,7 +21,6 @@
 
 <div class="Day @if($hasEntries) Day--withEntries @endif">
     <p class="Day__date">
-        <span class="text-label">{{ $day->format('D') }}</span>
         <strong class="Day__date__number">{{ $day->format('d') }}</strong>
     </p>
 

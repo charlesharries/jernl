@@ -1,9 +1,10 @@
 .Day {
 	display: flex;
-	align-items: flex-start;
+	flex-direction: column;
 	background-color: var(--light-grey);
 	padding: var(--spacing);
 	border-radius: 3px;
+	margin-bottom: var(--spacing);
 
 	&--withEntries {
 		background-color: var(--light-green);
@@ -11,8 +12,12 @@
 }
 
 .Day__date {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 75px;
 	margin-top: -3px;
-	margin-bottom: -3px;
+	margin-bottom: 5px;
 }
 
 .Day__date__number {
@@ -27,15 +32,9 @@
 	padding-right: 2px;
 }
 
-.Day__link {
-	margin-left: var(--spacing-2);
-}
-
-.Day__entries {
-	margin-left: var(--spacing-2);
-}
-
 .Day__entry a {
+	font-size: 14px;
+	letter-spacing: -0.02em;
 	&::after {
 		display: none;
 	}

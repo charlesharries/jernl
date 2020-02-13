@@ -31,7 +31,7 @@
 	/* Grid settings */
   --Grid__width: 100%;
   --Grid__columns: 12;
-  --Grid__gutter: var(--spacing-3);
+  --Grid__gutter: var(--spacing);
   --Grid__maxWidth--content: 1280px;
   --Grid__padding--sm: 15px;
   --Grid__padding--lg: 30px;
