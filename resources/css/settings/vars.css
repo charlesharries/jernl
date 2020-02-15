@@ -63,5 +63,6 @@
 }
 
 /* Breakpoints */
+@custom-media --mobile (max-width: 799px);
 @custom-media --desktop (min-width: 800px);
 @custom-media --container (min-width: var(--Grid__maxWidth--grid));

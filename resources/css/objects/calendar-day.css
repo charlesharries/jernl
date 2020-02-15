@@ -9,32 +9,52 @@
 	&--withEntries {
 		background-color: var(--light-green);
 	}
+
+	&--today {
+		.Day__date__number {
+			border: 2px solid var(--red);
+		}
+	}
 }
 
 .Day__date {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 75px;
+	width: 100%;
 	margin-top: -3px;
-	margin-bottom: 5px;
+	margin-bottom: -3px;
+}
+
+.Day__newEntry {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 25px;
+	width: 40px;
+	border-radius: 3px;
+	margin-left: var(--spacing);
+	background-color: var(--light-grey);
+	border: 1px solid color-mod(var(--black) a(0.1));
 }
 
 .Day__date__number {
 	display: inline-flex;
-	height: 30px;
-	width: 30px;
+	height: 32px;
+	width: 32px;
 	justify-content: center;
 	align-items: center;
 	border-radius: 100px;
 	background: color-mod(var(--white) a(0.7));
 	letter-spacing: -0.05em;
-	padding-right: 2px;
+	padding-right: 1px;
+}
+
+.Day__entry {
+	margin-top: 8px;
 }
 
 .Day__entry a {
 	font-size: 14px;
 	letter-spacing: -0.02em;
+
 	&::after {
 		display: none;
 	}

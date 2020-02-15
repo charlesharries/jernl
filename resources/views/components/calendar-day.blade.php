@@ -7,6 +7,7 @@
 
     $entries = auth()->user()->entriesOn($day);
     $hasEntries = $entries->isNotEmpty();
+    $isToday = $day->format('Y-m-d') === (new \DateTime())->format('Y-m-d');
 
     if (!function_exists('title')) {
         function title($entry) {
@@ -19,16 +20,14 @@
     }
 @endphp
 
-<div class="Day @if($hasEntries) Day--withEntries @endif">
-    <p class="Day__date">
-        <strong class="Day__date__number">{{ $day->format('d') }}</strong>
-    </p>
-
-    @if(!$hasEntries)
-        <p class="Day__link">
-            <a href="/entries/create?date={{ $day->format('Y-m-d') }}">New entry</a>
+<div class="Day @if($hasEntries) Day--withEntries @endif @if($isToday) Day--today @endif">
+    <div class="Day__date flex justify-between align-center">
+        <p>
+            <strong class="Day__date__number">{{ $day->format('d') }}</strong>
+            <span class="hide-desktop">{{ $day->format('D') }}</span>
         </p>
-    @endif
+        <a href="/entries/create?date={{ $day->format('Y-m-d') }}" class="Day__newEntry">&plus;</a>
+    </div>
 
     @if($hasEntries)
         <ul class="Day__entries">

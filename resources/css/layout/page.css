@@ -34,3 +34,15 @@ body {
 
   padding-bottom: var(--spacing-4);
 }
+
+.hide-mobile {
+  @media (--mobile) {
+    display: none;
+  }
+}
+
+.hide-desktop {
+  @media (--desktop) {
+    display: none;
+  }
+}
