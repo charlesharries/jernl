@@ -16,4 +16,5 @@ Route::get('/', 'PageController@index');
 Auth::routes();
 
 Route::get('/calendar', 'HomeController@index')->name('calendar');
+Route::get('/calendar/{year}-{month}', 'HomeController@month')->name('calendar.month');
 Route::resource('entries', 'EntryController');

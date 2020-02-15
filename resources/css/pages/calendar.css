@@ -3,9 +3,28 @@
 	padding-bottom: var(--spacing-3);
 }
 
+.Calendar__nav {
+	display: flex;
+	border-bottom: 2px solid var(--off-black);
+	padding-bottom: var(--spacing);
+
+	& > * + * {
+		display: block;
+		margin-left: var(--spacing-2);
+	}
+}
+
+.Calendar__title {
+	line-height: 1;
+	border-top: 3px solid var(--off-black);
+	padding-top: var(--spacing);
+}
+
 .Calendar__days {
 	& > * {
-		@mixin gridItemWidth 12/7;
+		@media (--desktop) {
+			@mixin gridItemWidth 12/7;
+		}
 
 		&:nth-child(7n + 6),
 		&:nth-child(7n + 7) {
