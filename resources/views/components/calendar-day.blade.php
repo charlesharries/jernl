@@ -21,13 +21,13 @@
 @endphp
 
 <div class="Day @if($hasEntries) Day--withEntries @endif @if($isToday) Day--today @endif">
-    <p class="Day__date flex justify-between align-center">
-        <span>
+    <div class="Day__date flex justify-between align-center">
+        <p>
             <strong class="Day__date__number">{{ $day->format('d') }}</strong>
             <span class="hide-desktop">{{ $day->format('D') }}</span>
-        </span>
-        <button class="Day__newEntry">&plus;</button>
-    </p>
+        </p>
+        <a href="/entries/create?date={{ $day->format('Y-m-d') }}" class="Day__newEntry">&plus;</a>
+    </div>
 
     @if($hasEntries)
         <ul class="Day__entries">

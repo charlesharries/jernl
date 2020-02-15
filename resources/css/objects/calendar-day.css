@@ -24,6 +24,10 @@
 }
 
 .Day__newEntry {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 25px;
 	width: 40px;
 	border-radius: 3px;
 	margin-left: var(--spacing);
