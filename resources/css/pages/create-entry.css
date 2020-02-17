@@ -4,5 +4,7 @@
 }
 
 .CreateEntry__main {
-	@mixin gridItemWidth 8;
+	@media (--desktop) {
+		@mixin gridItemWidth 8;
+	}
 }
