@@ -1,13 +1,13 @@
 .Day {
 	display: flex;
 	flex-direction: column;
-	background-color: var(--light-grey);
+	background-color: color-mod(var(--neutral-light-grey) a(0.1));
 	padding: var(--spacing);
 	border-radius: 3px;
 	margin-bottom: var(--spacing);
 
 	&--withEntries {
-		background-color: var(--light-green);
+		background-color: var(--dark-green);
 	}
 
 	&--today {
@@ -31,8 +31,8 @@
 	width: 40px;
 	border-radius: 3px;
 	margin-left: var(--spacing);
-	background-color: var(--light-grey);
-	border: 1px solid color-mod(var(--black) a(0.1));
+	background-color: color-mod(var(--light-grey) a(0.1));
+	border: 1px solid color-mod(var(--light-grey) a(0.1));
 }
 
 .Day__date__number {
@@ -42,7 +42,7 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 100px;
-	background: color-mod(var(--white) a(0.7));
+	background: color-mod(var(--neutral-light-grey) a(0.1));
 	letter-spacing: -0.05em;
 	padding-right: 1px;
 }
