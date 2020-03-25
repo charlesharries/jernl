@@ -5,6 +5,8 @@
 
 @extends('layouts.app')
 
+@section('title', $month->getStartDate()->format('F \'y') )
+
 @section('content')
 <div class="Calendar">
     <div class="container stack">

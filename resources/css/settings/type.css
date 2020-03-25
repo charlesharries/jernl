@@ -104,13 +104,13 @@ p a,
     left: 0;
     width: 100%;
     height: 1px;
-    background: var(--grey);
+    background: var(--neutral-light-grey);
     transition: background var(--trans);
   }
 
   &:hover {
     &::after {
-      background: var(--black);
+      background: var(--neutral-grey);
     }
   }
 }

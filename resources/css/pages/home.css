@@ -8,12 +8,12 @@
 }
 
 .Home__heading {
-	border-top: 4px solid var(--off-black);
+	border-top: 4px solid var(--neutral-light-grey);
 	padding-top: 10px;
 }
 
 .Home__footer {
-	border-bottom: 4px solid var(--off-black);
+	border-bottom: 4px solid var(--neutral-light-grey);
 	padding-bottom: 10px;
 
 	& > * {

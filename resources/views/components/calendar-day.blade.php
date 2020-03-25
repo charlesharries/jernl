@@ -11,6 +11,10 @@
 
     if (!function_exists('title')) {
         function title($entry) {
+            if (count(explode(' ', $entry->title)) > 10) {
+                return implode(' ', array_slice(explode(' ', $entry->title), 0, 10)) . '...';
+            }
+
             if (strlen($entry->title)) {
                 return $entry->title;
             }

@@ -2,8 +2,8 @@
 	display: inline-block;
 	width: auto;
 	padding: 10px 20px;
-	background-color: var(--light-grey);
-	color: var(--off-black);
+	background-color: var(--accent);
+	color: var(--neutral-light-grey);
 	border-radius: 3px;
 }
 
