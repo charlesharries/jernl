@@ -5,13 +5,23 @@
 	--white: #fff;
 	--black: #000;
 	--light-grey: #EDF2F7;
+
+  /* Light mode */
 	--grey: #A0AEC0;
 	--dark-grey: #4A5568;
 	--off-black: #2D3748;
 
+  /* Dark mode */
+  --neutral-light-grey: #cacaca;
+  --neutral-grey: #999999;
+  --neutral-dark-grey: #555555;
+  --neutral-off-black: #232323;
+  --accent: color-mod(var(--neutral-light-grey) a(0.1));
+
   --red: #FC8181;
 
   --light-green: #C6F6D5;
+  --dark-green: #33472d;
 
 	/* Fonts */
 	--font: 'SF Mono', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;

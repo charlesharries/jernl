@@ -5,7 +5,7 @@
 
 .Calendar__nav {
 	display: flex;
-	border-bottom: 2px solid var(--off-black);
+	border-bottom: 2px solid var(--neutral-light-grey);
 	padding-bottom: var(--spacing);
 
 	& > * + * {
@@ -16,7 +16,7 @@
 
 .Calendar__title {
 	line-height: 1;
-	border-top: 3px solid var(--off-black);
+	border-top: 3px solid var(--neutral-light-grey);
 	padding-top: var(--spacing);
 }
 
@@ -38,7 +38,7 @@
 .Calendar__heading {
 	& > * {
 		padding-bottom: calc(0.5 * var(--spacing));
-		border-bottom: 1.5px solid var(--off-black);
+		border-bottom: 1.5px solid var(--neutral-light-grey);
 		margin-bottom: var(--spacing);
 	}
 }

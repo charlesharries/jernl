@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title', 'Keep track') | Jernl</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -17,30 +17,6 @@
 </head>
 <body class="@yield('page-slug')">
     <div id="app">
-        {{-- <nav>
-            <ul>
-                @guest
-                    <li>
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li>
-                            <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
-                    <li>
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-
-                            <button type="submit">Logout</button>
-                        </form>
-                    </li>
-                @endguest
-            </ul>
-        </nav> --}}
-
         <main>
             @yield('content')
         </main>
