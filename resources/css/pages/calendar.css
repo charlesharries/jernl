@@ -40,5 +40,6 @@
 		padding-bottom: calc(0.5 * var(--spacing));
 		border-bottom: 1.5px solid var(--neutral-light-grey);
 		margin-bottom: var(--spacing);
+		letter-spacing: -0.75px;
 	}
 }

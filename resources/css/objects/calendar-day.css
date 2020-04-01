@@ -49,13 +49,17 @@
 
 .Day__entry {
 	margin-top: 8px;
-}
+	
+	a {
+		font-size: 14px;
+		letter-spacing: -0.02em;
 
-.Day__entry a {
-	font-size: 14px;
-	letter-spacing: -0.02em;
+		&::after {
+			display: none;
+		}
+	}
 
-	&::after {
-		display: none;
+	p {
+		line-height: 1.2;
 	}
 }
