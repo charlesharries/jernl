@@ -6,6 +6,7 @@
 /* Settings */
 @import './settings/vars';
 @import './settings/type';
+@import './settings/fonts';
 
 /* Layout */
 @import './layout/page';
