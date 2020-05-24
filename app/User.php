@@ -49,4 +49,12 @@ class User extends Authenticatable
             ->whereDate('date', '=', $day)
             ->get();
     }
+
+    public function allEntryDates($year) {
+        return Entry::where(['user_id' => auth()->id()])
+            ->whereYear('date', '=', $year)
+            ->pluck('date')
+            ->map(function($date) { return $date->format('Y-m-d'); })
+            ->toArray();
+    }
 }

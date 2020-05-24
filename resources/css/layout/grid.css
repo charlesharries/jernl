@@ -1,26 +1,18 @@
 .grid {
   display: flex;
   flex-flow: row wrap;
-  margin-right: calc(-1 * var(--Grid__gutter));
+  margin-left: calc(-1 * var(--Grid__gutter));
 
   @media (--desktop) {
-    margin-right: calc(-1 * var(--Grid__gutter));
+    margin-left: calc(-1 * var(--Grid__gutter));
   }
 }
 
 .grid__item {
   width: 100%;
-  padding-right: var(--Grid__gutter);
-
-  &:last-child {
-    margin-right: calc(-1 * var(--Grid__gutter));
-
-    @media (--desktop) {
-      margin-right: calc(-1 * var(--Grid__gutter));
-    }
-  }
+  padding-left: var(--Grid__gutter);
 
   @media (--desktop) {
-    padding-right: var(--Grid__gutter);
+    padding-left: var(--Grid__gutter);
   }
 }
