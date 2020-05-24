@@ -31,3 +31,9 @@
 @import './objects/buttons';
 @import './objects/calendar-day';
 @import './objects/calendar-month';
+
+/* Vendor */
+@import 'trix/dist/trix.css';
+
+/* Mods */
+@import './mods/trix';

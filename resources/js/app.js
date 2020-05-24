@@ -23,6 +23,7 @@ function domReady(fn) {
 }
 
 require('./bootstrap');
+require('trix');
 
 const routes = new Router({
   common,
