@@ -30,6 +30,7 @@ class HomeController extends Controller
     public function month($year, $month)
     {
         $posts = auth()->user()->posts;
+        $allEntries = auth()->user()->allEntryDates($year);
 
         $first = new \DateTime("first day of $year-$month");
         $last = new \DateTime("last day of $year-$month");
@@ -38,6 +39,6 @@ class HomeController extends Controller
         $lastMonth = (new \DateTime($month->getStartDate()->format('Y-m-d')))->sub(new \DateInterval('P1M'));
         $nextMonth = (new \DateTime($month->getStartDate()->format('Y-m-d')))->add(new \DateInterval('P1M'));
 
-        return view('calendar')->with(compact('posts', 'month', 'lastMonth', 'nextMonth'));
+        return view('calendar')->with(compact('posts', 'month', 'lastMonth', 'nextMonth', 'allEntries'));
     }
 }

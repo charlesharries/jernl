@@ -43,3 +43,24 @@
 		letter-spacing: -0.75px;
 	}
 }
+
+.Calendar__yearTitle {
+	border-top: 3px solid var(--neutral-light-grey);
+	padding-top: calc(0.5 * var(--spacing));
+}
+
+.Calendar__year {
+	margin-left: -30px;
+	margin-bottom: -30px;
+
+	& > * {
+		padding-left: 30px;
+		padding-bottom: 30px;
+
+		@mixin gridItemWidth 6;
+
+		@media (--desktop) {
+			@mixin gridItemWidth 2;
+		}
+	}
+}

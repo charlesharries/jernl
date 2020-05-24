@@ -22,17 +22,18 @@
 
                     <div class="field__control">
                         <input name="title" id="title" type="text" value="{{ $entry->title }}" class="field__input" />
+                        
+                        @error('title')
+                            <p class="field__help" role="alert">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                 </div>
 
-                <div class="field field--content">
-                    <label class="field__label" for="content">Content</label>
+                <input id="input-for-trix" type="hidden" name="content" value="{{ $entry->content }}"/>
 
-                    <div class="field__control">
-                        <textarea name="content" id="content" class="field__input" rows="5"
-                            data-autoresize>{{ $entry->content }}</textarea>
-                    </div>
-                </div>
+                <trix-editor input="input-for-trix" placeholder="What did you get up to today?"></trix-editor>
 
                 <div class="field">
                     <button class="button">Update</button>

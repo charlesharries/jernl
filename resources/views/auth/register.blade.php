@@ -64,8 +64,8 @@
                         <label for="password-confirm" class="field__label">{{ __('Confirm password') }}</label>
 
                         <div class="field__control">
-                            <input id="password-confirmation" type="password"
-                                class="field__input @error('password-confirmation') field__input--invalid @enderror" name="password-confirmation"
+                            <input id="password_confirmation" type="password"
+                                class="field__input @error('password_confirmation') field__input--invalid @enderror" name="password_confirmation"
                                 required autocomplete="new-password">
 
                             @error('password-confirmation')

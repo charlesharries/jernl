@@ -47,6 +47,20 @@
                 </div>
             @endforeach
         </div>
+
+        <h2 class="Calendar__yearTitle">{{ $month->getStartDate()->format('Y') }}</h2>
+
+        <div class="Calendar__year grid">
+            @for ($i = 0; $i < 12; $i++)
+                <div class="grid__item">
+                    <calendar-month 
+                        :month="$i"
+                        :year="$month->getStartDate()->format('Y')"
+                        :allEntries="$allEntries"
+                    />
+                </div>
+            @endfor
+        </div>
     </div>
 </div>
 @endsection

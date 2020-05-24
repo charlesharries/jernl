@@ -1,0 +1,42 @@
+trix-toolbar {
+  .trix-button-group {
+    border: none;
+  }
+
+  .trix-button {
+    background-color: var(--accent);
+    border-radius: 2px;
+    border-bottom: none;
+    border-left: none !important;
+    color: var(--white);
+
+    &:not(:first-child) {
+      margin-left: 5px;
+    }
+
+    &.trix-active {
+      background-color: var(--neutral-light-grey);
+    }
+
+    &[data-trix-attribute="strike"],
+    &[data-trix-attribute="href"],
+    &[data-trix-attribute="heading1"],
+    &[data-trix-attribute="quote"],
+    &[data-trix-attribute="code"],
+    &[data-trix-attribute="code"],
+    &[data-trix-attribute="bullet"],
+    &[data-trix-attribute="number"],
+    &[data-trix-action="decreaseNestingLevel"],
+    &[data-trix-action="increaseNestingLevel"],
+    &[data-trix-action="attachFiles"] {
+      display: none;
+    }
+  }
+}
+
+trix-editor {
+  border: none;
+  padding: 0;
+  
+  @mixin text-base;
+}

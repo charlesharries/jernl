@@ -43,7 +43,7 @@ class EntryController extends Controller
     public function store(Request $request)
     {
         $attributes = request()->validate([
-            'title' => 'max:255',
+            'title' => 'max:255|required',
             'content' => 'required',
             'date' => 'required|date'
         ]);
@@ -85,7 +85,7 @@ class EntryController extends Controller
     public function update(Request $request, Entry $entry)
     {
         $attributes = $request->validate([
-            'title' => 'max:255',
+            'title' => 'max:255|required',
             'content' => 'required'
         ]);
 
