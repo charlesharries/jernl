@@ -39,4 +39,9 @@ trix-editor {
   padding: 0;
   
   @mixin text-base;
+
+  /* Placeholder text */
+  &:empty:not(:focus)::before {
+    color: color-mod(var(--neutral-light-grey) a(0.4));
+  }
 }
