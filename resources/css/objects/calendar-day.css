@@ -45,6 +45,7 @@
 	background: color-mod(var(--neutral-light-grey) a(0.1));
 	letter-spacing: -0.05em;
 	padding-right: 1px;
+	padding-top: 3px;
 }
 
 .Day__entry {
