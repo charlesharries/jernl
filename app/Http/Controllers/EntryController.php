@@ -48,7 +48,20 @@ class EntryController extends Controller
             'date' => 'required|date'
         ]);
 
-        Entry::create($attributes + ['user_id' => auth()->id()]);
+        $entry = new Entry($attributes + ['user_id' => auth()->id()]);
+        $encryptedUserKey = auth()->user()->encrypted_user_key;
+        $passwordKey = $request->session()->get('password_key');
+        $encrypter = new \Illuminate\Encryption\Encrypter(
+            $passwordKey, \Config::get('app.cipher')
+        );
+
+        $userKey = $encrypter->decrypt($encryptedUserKey);
+        $dataEncrypter = new \Illuminate\Encryption\Encrypter(
+            $userKey, \Config::get('app.cipher')
+        );
+
+        $entry->content = $dataEncrypter->encrypt($entry->content);
+        $entry->save();
 
         return redirect('/calendar');
     }
@@ -70,8 +83,21 @@ class EntryController extends Controller
      * @param  \App\Entry  $entry
      * @return \Illuminate\Http\Response
      */
-    public function edit(Entry $entry)
+    public function edit(Entry $entry, Request $request)
     {
+        $encryptedUserKey = auth()->user()->encrypted_user_key;
+        $passwordKey = $request->session()->get('password_key');
+        $encrypter = new \Illuminate\Encryption\Encrypter(
+            $passwordKey, \Config::get('app.cipher')
+        );
+
+        $userKey = $encrypter->decrypt($encryptedUserKey);
+        $dataEncrypter = new \Illuminate\Encryption\Encrypter(
+            $userKey, \Config::get('app.cipher')
+        );
+
+        $entry->content = $dataEncrypter->decrypt($entry->content);
+
         return view('entries.edit')->with(compact('entry'));
     }
 
