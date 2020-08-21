@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'encrypted_user_key',
     ];
 
     /**
@@ -37,6 +37,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function generateEncryptedUserKey(string $password)
+    {
+        
+        $userKey = \Str::random(32);
+
+        $passwordKey = self::generatePasswordKey($password);
+
+        $encrypter = new \Illuminate\Encryption\Encrypter(
+            $passwordKey, \Config::get('app.cipher')
+        );
+
+        return $encrypter->encrypt($userKey);
+    }
+
+    public static function generatePasswordKey(string $password) {
+        $appKey = \Illuminate\Support\Facades\Crypt::getKey();
+
+        return hash_pbkdf2( "sha256", $password, $appKey, 200000, 32);
+    }
 
     public function entries()
     {

@@ -16,8 +16,6 @@
 
 .Calendar__title {
 	line-height: 1;
-	border-top: 3px solid var(--neutral-light-grey);
-	padding-top: var(--spacing);
 }
 
 .Calendar__days {
