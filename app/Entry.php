@@ -63,6 +63,7 @@ class Entry extends Model
     }
 
     public function getIsEncryptedAttribute() {
+        // TODO(charles): Consider using $this->title->getRawOriginal()
         [$entry] = \DB::select('select title, content from entries where id = ?', [$this->id]);
         try {
             $this->encrypter->decrypt($entry->title);

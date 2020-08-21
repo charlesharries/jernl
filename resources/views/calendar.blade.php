@@ -10,9 +10,9 @@
 @section('content')
 <div class="Calendar">
     <div class="container stack">
-        <the-header>
+        <x-the-header>
             Your Journal
-        </the-header>
+        </x-the-header>
 
         <h3 class="Calendar__title text-h1">{{ $month->getStartDate()->format('F \'y') }}</h3>
 
@@ -41,7 +41,7 @@
 
             @foreach($month as $day)
                 <div class="grid__item">
-                    <calendar-day :day="$day" />
+                    <x-calendar-day :day="$day" />
                 </div>
             @endforeach
         </div>
@@ -51,7 +51,7 @@
         <div class="Calendar__year grid">
             @for ($i = 0; $i < 12; $i++)
                 <div class="grid__item">
-                    <calendar-month 
+                    <x-calendar-month 
                         :month="$i"
                         :year="$month->getStartDate()->format('Y')"
                         :allEntries="$allEntries"
