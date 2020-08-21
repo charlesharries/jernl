@@ -8,6 +8,10 @@
 
 	&--withEntries {
 		background-color: var(--dark-green);
+
+		.Day__date {
+			justify-content: flex-start;
+		}
 	}
 
 	&--today {
@@ -21,6 +25,7 @@
 	width: 100%;
 	margin-top: -3px;
 	margin-bottom: -3px;
+	justify-content: space-between;
 }
 
 .Day__newEntry {
@@ -33,6 +38,10 @@
 	margin-left: var(--spacing);
 	background-color: color-mod(var(--light-grey) a(0.1));
 	border: 1px solid color-mod(var(--light-grey) a(0.1));
+}
+
+.Day__entries {
+	flex: 1;
 }
 
 .Day__date__number {
@@ -49,7 +58,18 @@
 }
 
 .Day__entry {
-	margin-top: 8px;
+	display: flex;
+	align-items: flex-start;
+	margin-top: 10px;
+
+	&--unencrypted {
+		color: var(--red);
+	}
+
+	.Icon {
+		margin-right: 4px;
+		margin-top: 1px;
+	}
 	
 	a {
 		font-size: 14px;

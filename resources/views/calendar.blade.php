@@ -10,11 +10,9 @@
 @section('content')
 <div class="Calendar">
     <div class="container stack">
-        <div class="flex justify-between align-center">
-            <h1 class="text-h3">Your Journal</h1>
-
-            <log-out />
-        </div>
+        <the-header>
+            Your Journal
+        </the-header>
 
         <h3 class="Calendar__title text-h1">{{ $month->getStartDate()->format('F \'y') }}</h3>
 

@@ -48,10 +48,7 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        $appKey = \Illuminate\Support\Facades\Crypt::getKey();
-        $passwordKey = hash_pbkdf2(
-            "sha256", $request->input('password'), $appKey, 200000, 32
-        );
+        $passwordKey = \App\User::generatePasswordKey($request->input('password'));
 
         $request->session()->put('password_key', $passwordKey);
         return;

@@ -27,9 +27,22 @@ class HomeController extends Controller
         return redirect("/calendar/$now");
     }
 
-    public function month($year, $month)
+    public function month($year, $month, Request $request)
     {
+
+        $encryptedUserKey = auth()->user()->encrypted_user_key;
+        $passwordKey = $request->session()->get('password_key');
+        $encrypter = new \Illuminate\Encryption\Encrypter(
+            $passwordKey, \Config::get('app.cipher')
+        );
+
+        $userKey = $encrypter->decrypt($encryptedUserKey);
+        $dataEncrypter = new \Illuminate\Encryption\Encrypter(
+            $userKey, \Config::get('app.cipher')
+        );
+
         $posts = auth()->user()->posts;
+
         $allEntries = auth()->user()->allEntryDates($year);
 
         $first = new \DateTime("first day of $year-$month");

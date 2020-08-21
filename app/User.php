@@ -40,18 +40,22 @@ class User extends Authenticatable
 
     public static function generateEncryptedUserKey(string $password)
     {
-        $appKey = \Illuminate\Support\Facades\Crypt::getKey();
+        
         $userKey = \Str::random(32);
 
-        $passwordKey = hash_pbkdf2(
-            "sha256", $password, $appKey, 200000, 32
-        );
+        $passwordKey = self::generatePasswordKey($password);
 
         $encrypter = new \Illuminate\Encryption\Encrypter(
             $passwordKey, \Config::get('app.cipher')
         );
 
         return $encrypter->encrypt($userKey);
+    }
+
+    public static function generatePasswordKey(string $password) {
+        $appKey = \Illuminate\Support\Facades\Crypt::getKey();
+
+        return hash_pbkdf2( "sha256", $password, $appKey, 200000, 32);
     }
 
     public function entries()

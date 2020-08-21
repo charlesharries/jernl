@@ -14,6 +14,7 @@
 @import './layout/grid';
 @import './layout/stack';
 @import './layout/flex';
+@import './layout/cluster';
 
 /* Pages */
 @import './pages/home';
@@ -31,6 +32,9 @@
 @import './objects/buttons';
 @import './objects/calendar-day';
 @import './objects/calendar-month';
+@import './objects/the-header';
+@import './objects/icon';
+@import './objects/encrypted-notice';
 
 /* Vendor */
 @import 'trix/dist/trix.css';
