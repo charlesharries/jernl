@@ -77,7 +77,6 @@ class Entry extends Model
         try {
             return $this->encrypter->decrypt($value);
         } catch (DecryptException $e) {
-            $this->attributes['is_encrypted'] = false;
             return $value;
         }
     }
@@ -86,7 +85,6 @@ class Entry extends Model
         try {
             return $this->encrypter->decrypt($value);
         } catch (DecryptException $e) {
-            $this->attributes['is_encrypted'] = false;
             return $value;
         }
     }

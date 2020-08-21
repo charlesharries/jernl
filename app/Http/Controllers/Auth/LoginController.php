@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
@@ -48,7 +49,12 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        $passwordKey = \App\User::generatePasswordKey($request->input('password'));
+        if (!$user->encrypted_user_key) {
+            $user->encrypted_user_key = User::generateEncryptedUserKey($request->input('password'));
+            $user->save();
+        }
+
+        $passwordKey = User::generatePasswordKey($request->input('password'));
 
         $request->session()->put('password_key', $passwordKey);
         return;
