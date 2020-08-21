@@ -2,7 +2,7 @@
     <h1 class="text-h3">{!! $slot !!}</h1>
         
     <div class="cluster">
-        <encrypted-notice />
-        <log-out />
+        <x-encrypted-notice />
+        <x-log-out />
     </div>
 </div>

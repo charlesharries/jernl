@@ -22,7 +22,7 @@
                             @endif
                         @else
                             <li>
-                                <log-out />
+                                <x-log-out />
                             </li>
                         @endguest
                     </ul>

@@ -40,7 +40,7 @@
             @foreach($entries as $entry)
                 <li class="Day__entry {{ ! $entry->is_encrypted ? "Day__entry--unencrypted": '' }}">
                     @if(!$entry->is_encrypted)
-                        <app-icon use="unlock" />
+                        <x-app-icon use="unlock" />
                     @endif
                     <p>
                         <strong>

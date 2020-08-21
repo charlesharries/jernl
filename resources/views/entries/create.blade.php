@@ -5,9 +5,9 @@
 @section('content')
 <div class="CreateEntry">
     <div class="container stack stack-md">
-        <the-header>
+        <x-the-header>
             Create entry
-        </the-header>
+        </x-the-header>
         <div class="grid">
             <div class="CreateEntry__main grid__item stack stack-md">
 				<p><a href="/calendar">< Back to Calendar</a></p>
