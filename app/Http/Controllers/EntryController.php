@@ -48,7 +48,13 @@ class EntryController extends Controller
             'date' => 'required|date'
         ]);
 
-        Entry::create($attributes + ['user_id' => auth()->id()]);
+        $entry = new Entry;
+        $entry->user_id = auth()->id();
+        $entry->date = $attributes['date'];
+        $entry->title = $attributes['title'];
+        $entry->content = $attributes['content'];
+
+        $entry->save();
 
         return redirect('/calendar');
     }
@@ -70,7 +76,7 @@ class EntryController extends Controller
      * @param  \App\Entry  $entry
      * @return \Illuminate\Http\Response
      */
-    public function edit(Entry $entry)
+    public function edit(Entry $entry, Request $request)
     {
         return view('entries.edit')->with(compact('entry'));
     }

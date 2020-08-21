@@ -4,7 +4,10 @@
 
 @section('content')
 <div class="CreateEntry">
-    <div class="container">
+    <div class="container stack stack-md">
+        <the-header>
+            Edit entry
+        </the-header>
         <div class="grid">
             <div class="CreateEntry__main grid__item stack stack-md">
                 <p><a href="/calendar">

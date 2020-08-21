@@ -1,0 +1,4 @@
+.Header {
+  padding-bottom: var(--spacing);
+  border-bottom: 3px solid var(--neutral-light-grey);
+}
