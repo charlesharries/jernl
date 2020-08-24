@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -31,7 +32,9 @@ class HomeController extends Controller
     {
 
         $encryptedUserKey = auth()->user()->encrypted_user_key;
-        $passwordKey = $request->session()->get('password_key');
+        $passwordKey = $request->cookie('password_key');
+        if (!$passwordKey) return Auth::logout();
+
         $encrypter = new \Illuminate\Encryption\Encrypter(
             $passwordKey, \Config::get('app.cipher')
         );

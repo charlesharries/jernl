@@ -1,4 +1,4 @@
-@if(Session::has('password_key'))
+@if(Cookie::get('password_key'))
     <div class="EncryptedNotice EncryptedNotice--encrypted">
         <x-app-icon use="lock" />
         <span>Encrypted</span>

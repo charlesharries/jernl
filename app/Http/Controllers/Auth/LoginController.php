@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
@@ -56,7 +57,9 @@ class LoginController extends Controller
 
         $passwordKey = User::generatePasswordKey($request->input('password'));
 
-        $request->session()->put('password_key', $passwordKey);
+        $thirtyDays = time() + 60 * 60 * 24 * 30;
+        Cookie::queue('password_key', $passwordKey, $thirtyDays);
+
         return;
     }
 }

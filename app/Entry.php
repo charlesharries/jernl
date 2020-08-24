@@ -47,7 +47,7 @@ class Entry extends Model
         if ($this->userKey && strlen($this->userKey) > 0) return;
 
         $encryptedUserKey = auth()->user()->encrypted_user_key;
-        $passwordKey = request()->session()->get('password_key');
+        $passwordKey = request()->cookie('password_key');
         $encrypter = new \Illuminate\Encryption\Encrypter(
             $passwordKey, \Config::get('app.cipher')
         );
