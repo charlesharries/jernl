@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Cookie;
 
 class RegisterController extends Controller
 {
@@ -84,7 +85,9 @@ class RegisterController extends Controller
     {
         $passwordKey = \App\User::generatePasswordKey($request->input('password'));
 
-        $request->session()->put('password_key', $passwordKey);
+        $thirtyDays = time() + 60 * 60 * 24 * 30;
+        Cookie::queue('password_key', $passwordKey, $thirtyDays);
+
         return;
     }
 }
