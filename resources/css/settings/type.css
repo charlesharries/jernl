@@ -9,6 +9,10 @@
   @media (--desktop) {
     font-size: 96px;
   }
+
+  .serif & {
+    font-variation-settings: 'opsz' 70, 'wght' 700, 'SOFT' 20;
+  }
 }
 
 @define-mixin text-h2 {
@@ -20,6 +24,10 @@
   @media (--desktop) {
     font-size: 30px;
   }
+
+  .serif & {
+    font-variation-settings: 'opsz' 70, 'wght' 700, 'SOFT' 20;
+  }
 }
 
 @define-mixin text-h3 {
@@ -29,6 +37,10 @@
 
   @media (--desktop) {
     font-size: 28px;
+  }
+
+  .serif & {
+    font-variation-settings: 'opsz' 70, 'wght' 400, 'SOFT' 20;
   }
 }
 
@@ -40,12 +52,21 @@
   @media (--desktop) {
     font-size: 22px;
   }
+
+  .serif & {
+    font-variation-settings: 'opsz' 20, 'wght' 600, 'SOFT' 0;
+  }
 }
 
 @define-mixin text-base {
   font-size: 16px;
   line-height: calc(24 / 16);
   font-weight: 400;
+
+  .serif & {
+    font-weight: 300;
+    font-size: 18px;
+  }
 }
 
 @define-mixin text-small {

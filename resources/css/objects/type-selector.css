@@ -1,0 +1,23 @@
+.TypeSelector {
+  border: 1px solid var(--neutral-light-grey);
+  display: flex;
+  border-radius: 3px;
+
+  &__button {
+    padding: 5px 8px;
+
+    & + & {
+      border-left: 1px solid var(--neutral-light-grey);
+    }
+
+    &--serif {
+      font-family: var(--serif);
+    }
+
+    &--sans {
+      font-family: var(--font);
+      padding-top: 7px;
+      padding-bottom: 2px;
+    }
+  }
+}

@@ -9,6 +9,7 @@ trix-toolbar {
     border-bottom: none;
     border-left: none !important;
     color: var(--white);
+    font-size: 16px;
 
     &:not(:first-child) {
       margin-left: 5px;

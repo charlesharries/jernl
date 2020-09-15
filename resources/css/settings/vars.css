@@ -25,6 +25,7 @@
 
 	/* Fonts */
 	--font: 'Epilogue', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  --serif: 'Fraunces';
   --mono: 'SF Mono', monospace;
 
 	/* Transitions */

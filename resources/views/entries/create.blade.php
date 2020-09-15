@@ -12,7 +12,6 @@
             <div class="CreateEntry__main grid__item stack stack-md">
 				<p><a href="/calendar">< Back to Calendar</a></p>
                 <div class="CreateEntry__heading">
-                    <h1 class="text-h4">Create entry</h1>
                     <h2>{{ $day->format('d l Y') }}</h2>
                 </div>
 

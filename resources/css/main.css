@@ -35,6 +35,7 @@
 @import './objects/the-header';
 @import './objects/icon';
 @import './objects/encrypted-notice';
+@import './objects/type-selector';
 
 /* Vendor */
 @import 'trix/dist/trix.css';

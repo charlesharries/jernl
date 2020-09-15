@@ -16,6 +16,10 @@
 
 .Calendar__title {
 	line-height: 1;
+
+	.serif & {
+		padding-bottom: var(--spacing);
+	}
 }
 
 .Calendar__days {

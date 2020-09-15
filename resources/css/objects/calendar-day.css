@@ -55,6 +55,12 @@
 	letter-spacing: -0.05em;
 	padding-right: 1px;
 	padding-top: 3px;
+
+	.serif & {
+		font-size: 16px;
+		padding-top: 0;
+		letter-spacing: 0;
+	}
 }
 
 .Day__entry {
@@ -76,6 +82,11 @@
 
 		&::after {
 			display: none;
+		}
+
+		.serif & {
+			font-size: 16px;
+			font-variation-settings: 'opsz' 16, 'wght' 400, 'SOFT' 100;
 		}
 	}
 
