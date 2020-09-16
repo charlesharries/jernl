@@ -55,7 +55,11 @@ class User extends Authenticatable
     public static function generatePasswordKey(string $password) {
         $appKey = \Illuminate\Support\Facades\Crypt::getKey();
 
-        return hash_pbkdf2( "sha256", $password, $appKey, 200000, 32);
+        return hash_pbkdf2("sha256", $password, $appKey, 200000, 32);
+    }
+
+    public function preferences() {
+        return $this->hasOne('App\UserPreferences');
     }
 
     public function entries()

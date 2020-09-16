@@ -15,7 +15,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
-<body class="@yield('page-slug') serif">
+<body class="@yield('page-slug') {{ auth()->user()->preferences->use_serif ? 'serif' : '' }}">
     <div id="app">
         <main>
             @yield('content')

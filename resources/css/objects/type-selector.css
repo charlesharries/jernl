@@ -3,12 +3,12 @@
   display: flex;
   border-radius: 3px;
 
+  & > * + * {
+    border-left: 1px solid var(--neutral-light-grey);
+  }
+
   &__button {
     padding: 5px 8px;
-
-    & + & {
-      border-left: 1px solid var(--neutral-light-grey);
-    }
 
     &--serif {
       font-family: var(--serif);
