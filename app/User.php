@@ -81,4 +81,10 @@ class User extends Authenticatable
             ->map(function($date) { return $date->format('Y-m-d'); })
             ->toArray();
     }
+
+    public function getUseSerifAttribute() {
+        if (! isset($this->preferences)) return false;
+
+        return $this->preferences->use_serif;
+    }
 }

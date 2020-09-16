@@ -2,6 +2,7 @@
   border: 1px solid var(--neutral-light-grey);
   display: flex;
   border-radius: 3px;
+  font-size: 20px;
 
   & > * + * {
     border-left: 1px solid var(--neutral-light-grey);
@@ -12,12 +13,21 @@
 
     &--serif {
       font-family: var(--serif);
+
+      .serif & {
+        background-color: color-mod(var(--neutral-light-grey) a(0.1));
+      }
     }
 
     &--sans {
       font-family: var(--font);
       padding-top: 7px;
       padding-bottom: 2px;
+      background-color: color-mod(var(--neutral-light-grey) a(0.1));
+
+      .serif & {
+        background-color: transparent;
+      }
     }
   }
 }
