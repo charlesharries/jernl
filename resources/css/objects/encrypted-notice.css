@@ -1,7 +1,7 @@
 .EncryptedNotice {
   display: flex;
   align-items: baseline;
-  padding: 12px 12px;
+  padding: 10px;
   border-radius: 3px;
 
   &--encrypted {
@@ -11,6 +11,20 @@
   &--unencrypted {
     background-color: var(--red);
     color: var(--neutral-off-black);
+  }
+
+  .serif & {
+    position: relative;
+    font-size: 16px;
+
+    span {
+      top: 0;
+    }
+
+    .Icon {
+      position: relative;
+      top: -2px;
+    }
   }
 
   .Icon {
