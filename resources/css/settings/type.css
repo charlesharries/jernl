@@ -140,6 +140,13 @@ small,
   @mixin text-small
 }
 
+b,
+strong,
+.font-bold {
+  font-weight: 700;
+  font-variation-settings: 'wght' 700;
+}
+
 .text-label {
   text-transform: uppercase;
   font-size: 14px;
