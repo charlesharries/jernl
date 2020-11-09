@@ -2,14 +2,17 @@
 
 namespace App;
 
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Config;
 use App\Entry;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -40,13 +43,13 @@ class User extends Authenticatable
 
     public static function generateEncryptedUserKey(string $password)
     {
-        
-        $userKey = \Str::random(32);
+
+        $userKey = Str::random(32);
 
         $passwordKey = self::generatePasswordKey($password);
 
         $encrypter = new \Illuminate\Encryption\Encrypter(
-            $passwordKey, \Config::get('app.cipher')
+            $passwordKey, Config::get('app.cipher')
         );
 
         return $encrypter->encrypt($userKey);
@@ -82,9 +85,14 @@ class User extends Authenticatable
             ->toArray();
     }
 
+    /**
+     * Get the user's serif preferences.
+     *
+     * @return boolean
+     */
     public function getUseSerifAttribute() {
         if (! isset($this->preferences)) return false;
 
-        return $this->preferences->use_serif;
+        return (boolean) $this->preferences->use_serif;
     }
 }

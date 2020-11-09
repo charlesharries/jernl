@@ -16,10 +16,11 @@ class UserPreferencesController extends Controller
 
         if (! $preferences) {
             $preferences = new UserPreferences(['user_id' => auth()->id()]);
+            $preferences->save();
         }
 
-        $preferences->update($attributes);
-        $preferences->save();
+        $smth = $preferences->update($attributes);
+        $preferences->refresh();
 
         return back();
     }
