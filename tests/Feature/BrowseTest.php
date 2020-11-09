@@ -4,11 +4,12 @@ namespace Tests\Feature;
 
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class BrowseTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function it_authenticates_the_browse_page()
     {
         $response = $this->get('/browse');
@@ -22,5 +23,6 @@ class BrowseTest extends TestCase
         $user = User::factory()->create();
 
         $this->actingAs($user)->get('/browse');
+
     }
 }
