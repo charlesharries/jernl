@@ -21,6 +21,7 @@ Auth::routes();
 Route::get('/calendar', 'HomeController@index')->name('calendar');
 Route::get('/calendar/{year}-{month}', 'HomeController@month')->name('calendar.month');
 Route::resource('entries', 'EntryController');
+Route::middleware('auth')->get('/browse', 'EntryController@browse')->name('browse');
 
 Route::patch(
     '/user-preferences', 'UserPreferencesController@update'

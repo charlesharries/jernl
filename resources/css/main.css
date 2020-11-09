@@ -15,12 +15,15 @@
 @import './layout/stack';
 @import './layout/flex';
 @import './layout/cluster';
+@import './layout/switcher';
+@import './layout/sidebar';
 
 /* Pages */
 @import './pages/home';
 @import './pages/login';
 @import './pages/calendar';
 @import './pages/create-entry';
+@import './pages/browse';
 
 /* Utilities */
 /* @import './utilities/display'; */

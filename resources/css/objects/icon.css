@@ -1,8 +1,9 @@
 .Icon {
-  width: 15px;
+  height: 1em;
+  width: auto;
 
   svg {
-    width: 100%;
-    height: auto;
+    height: 100%;
+    width: auto;
   }
 }

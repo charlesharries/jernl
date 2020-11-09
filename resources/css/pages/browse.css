@@ -1,0 +1,12 @@
+.Browse {
+    padding-top: var(--spacing-2);
+	padding-bottom: var(--spacing-3);
+}
+
+.BrowseEntry {
+    padding-top: var(--spacing-3);
+
+    & + & {
+        border-top: 1px solid color-mod(var(--neutral-light-grey) a(0.3));
+    }
+}

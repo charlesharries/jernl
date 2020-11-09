@@ -104,4 +104,15 @@ class EntryController extends Controller
     {
         //
     }
+
+    /**
+     * Browse all entries at once.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function browse() {
+        $entries = Entry::where(['user_id' => auth()->user()->id])->limit(20)->get();
+
+        return view('browse')->with(compact('entries'));
+    }
 }

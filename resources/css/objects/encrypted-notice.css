@@ -1,16 +1,14 @@
 .EncryptedNotice {
   display: flex;
   align-items: baseline;
-  padding: 10px;
-  border-radius: 3px;
+  background-color: transparent;
 
   &--encrypted {
-    background-color: var(--dark-green);
+    color: var(--light-green);
   }
 
   &--unencrypted {
-    background-color: var(--red);
-    color: var(--neutral-off-black);
+    color: var(--red);
   }
 
   .serif & {

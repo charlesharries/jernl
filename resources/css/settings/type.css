@@ -5,7 +5,7 @@
   line-height: calc(42 / 30);
   letter-spacing: -0.03em;
   font-weight: 700;
-  
+
   @media (--desktop) {
     font-size: 96px;
   }
@@ -70,7 +70,7 @@
 }
 
 @define-mixin text-small {
-  font-size: 14px;
+  font-size: 14px !important;
   line-height: calc(16 / 14);
   letter-spacing: 0.3px;
 }
@@ -136,8 +136,9 @@ p a,
 }
 
 small,
-.text-small {
-  @mixin text-small
+.text-small,
+.text-sm {
+  @mixin text-small;
 }
 
 b,
