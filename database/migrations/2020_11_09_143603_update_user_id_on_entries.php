@@ -15,6 +15,7 @@ class UpdateUserIdOnEntries extends Migration
     {
         Schema::table('entries', function(Blueprint $table) {
             $table->integer('user_id')->nullable(false)->change();
+            $table->date('date')->nullable(false)->change();
         });
     }
 
@@ -27,6 +28,7 @@ class UpdateUserIdOnEntries extends Migration
     {
         Schema::table('entries', function(Blueprint $table) {
             $table->integer('user_id')->nullable()->change();
+            $table->date('date')->nullable()->change();
         });
     }
 }
