@@ -14,7 +14,7 @@ class AddDateToEntries extends Migration
     public function up()
     {
         Schema::table('entries', function (Blueprint $table) {
-            $table->date('date');
+            $table->date('date')->nullable();
         });
     }
 
