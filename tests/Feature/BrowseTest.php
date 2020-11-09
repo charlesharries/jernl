@@ -22,7 +22,8 @@ class BrowseTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $this->actingAs($user)->get('/browse');
+        $response = $this->actingAs($user)->get('/browse');
 
+        $response->assertViewIs('browse');
     }
 }
