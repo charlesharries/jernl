@@ -18,7 +18,6 @@ class AddUserIdToEntries extends Migration
             // columns in it, but it will happily let you add a nullable column that
             // you then _change_ to be NOT NULL.
             $table->integer('user_id')->nullable();
-            $table->integer('user_id')->nullable(false)->change();
         });
     }
 
