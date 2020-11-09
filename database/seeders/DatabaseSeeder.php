@@ -19,5 +19,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Charles Harries',
             'email' => 'charles@harries.me',
         ]);
+
+        Entry::factory()
+            ->times(30)
+            ->make()
+            ->map(function($entry, $index) {
+                $entry->date = now()->subDay($index);
+                $entry->save();
+            });
     }
 }

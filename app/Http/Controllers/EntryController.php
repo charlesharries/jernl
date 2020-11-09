@@ -11,7 +11,7 @@ class EntryController extends Controller
     {
         $this->authorizeResource(Entry::class, 'entry');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -48,13 +48,7 @@ class EntryController extends Controller
             'date' => 'required|date'
         ]);
 
-        $entry = new Entry;
-        $entry->user_id = auth()->id();
-        $entry->date = $attributes['date'];
-        $entry->title = $attributes['title'];
-        $entry->content = $attributes['content'];
-
-        $entry->save();
+        $entry = Entry::create($attributes + ['user_id' => auth()->id()]);
 
         return redirect('/calendar');
     }
