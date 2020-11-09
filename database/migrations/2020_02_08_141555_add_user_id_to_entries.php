@@ -14,7 +14,11 @@ class AddUserIdToEntries extends Migration
     public function up()
     {
         Schema::table('entries', function (Blueprint $table) {
-            $table->integer('user_id');
+            // Sqlite won't let you add a NOT NULL column to a table that already has
+            // columns in it, but it will happily let you add a nullable column that
+            // you then _change_ to be NOT NULL.
+            $table->integer('user_id')->nullable();
+            $table->integer('user_id')->nullable(false)->change();
         });
     }
 
