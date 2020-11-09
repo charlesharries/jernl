@@ -43,10 +43,9 @@ class User extends Authenticatable
 
     public static function generateEncryptedUserKey(string $password)
     {
-
         $userKey = Str::random(32);
 
-        $passwordKey = self::generatePasswordKey($password);
+        $passwordKey = static::generatePasswordKey($password);
 
         $encrypter = new \Illuminate\Encryption\Encrypter(
             $passwordKey, Config::get('app.cipher')
