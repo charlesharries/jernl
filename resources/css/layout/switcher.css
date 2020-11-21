@@ -1,0 +1,20 @@
+.switcher {
+  --threshold: 58rem;
+  --space: var(--spacing-3);
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(-1 * (var(--space) / 2));
+}
+
+.switcher > * {
+  flex-basis: calc(((var(--threshold) - 100%) - var(--space)) * 999);
+  flex-grow: 1;
+  margin: calc(var(--space) / 2);
+}
+
+.switcher--offset {
+    & > *:first-child {
+        flex-grow: 0.5;
+    }
+}

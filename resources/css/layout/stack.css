@@ -13,13 +13,13 @@
 	}
 }
 
-.stack-md {
+.stack--md {
 	& > * + * {
 		margin-top: var(--spacing-2);
 	}
 }
 
-.stack-lg {
+.stack--lg {
 	& > * + * {
 		margin-top: var(--spacing-3);
 	}

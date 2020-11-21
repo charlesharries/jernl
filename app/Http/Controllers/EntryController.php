@@ -11,19 +11,19 @@ class EntryController extends Controller
     {
         $this->authorizeResource(Entry::class, 'entry');
     }
-    
+
     /**
-     * Display a listing of the resource.
+     * Redirect to the calendar page.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return redirect('/calendar');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new entry.
      *
      * @return \Illuminate\Http\Response
      */
@@ -35,7 +35,7 @@ class EntryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created entry in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -48,30 +48,24 @@ class EntryController extends Controller
             'date' => 'required|date'
         ]);
 
-        $entry = new Entry;
-        $entry->user_id = auth()->id();
-        $entry->date = $attributes['date'];
-        $entry->title = $attributes['title'];
-        $entry->content = $attributes['content'];
-
-        $entry->save();
+        $entry = Entry::create($attributes + ['user_id' => auth()->id()]);
 
         return redirect('/calendar');
     }
 
     /**
-     * Display the specified resource.
+     * Redirect to the entry edit page.
      *
      * @param  \App\Entry  $entry
      * @return \Illuminate\Http\Response
      */
     public function show(Entry $entry)
     {
-        //
+        return redirect('/entries/' . $entry->id . '/edit');
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing entries.
      *
      * @param  \App\Entry  $entry
      * @return \Illuminate\Http\Response
@@ -82,7 +76,7 @@ class EntryController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the entry in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Entry  $entry
@@ -108,6 +102,20 @@ class EntryController extends Controller
      */
     public function destroy(Entry $entry)
     {
-        //
+        // TODO: implement this.
+    }
+
+    /**
+     * Browse all entries at once.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function browse() {
+        $entries = Entry::where(['user_id' => auth()->user()->id])
+            ->orderBy('date', 'desc')
+            ->limit(20)
+            ->get();
+
+        return view('browse')->with(compact('entries'));
     }
 }

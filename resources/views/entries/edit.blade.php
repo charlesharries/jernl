@@ -4,12 +4,12 @@
 
 @section('content')
 <div class="CreateEntry">
-    <div class="container stack stack-md">
+    <div class="container stack stack--md">
         <x-the-header>
             Edit entry
         </x-the-header>
         <div class="grid">
-            <div class="CreateEntry__main grid__item stack stack-md">
+            <div class="CreateEntry__main grid__item stack stack--md">
                 <p><a href="/calendar">
                         < Back to Calendar</a> </p> <div class="CreateEntry__heading">
                             <h1 class="text-h4">Edit entry</h1>
@@ -25,7 +25,7 @@
 
                     <div class="field__control">
                         <input name="title" id="title" type="text" value="{{ $entry->title }}" class="field__input" />
-                        
+
                         @error('title')
                             <p class="field__help" role="alert">
                                 {{ $message }}

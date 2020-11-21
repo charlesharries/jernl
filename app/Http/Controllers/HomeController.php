@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 
 class HomeController extends Controller
 {
@@ -36,12 +37,12 @@ class HomeController extends Controller
         if (!$passwordKey) return Auth::logout();
 
         $encrypter = new \Illuminate\Encryption\Encrypter(
-            $passwordKey, \Config::get('app.cipher')
+            $passwordKey, Config::get('app.cipher')
         );
 
         $userKey = $encrypter->decrypt($encryptedUserKey);
         $dataEncrypter = new \Illuminate\Encryption\Encrypter(
-            $userKey, \Config::get('app.cipher')
+            $userKey, Config::get('app.cipher')
         );
 
         $posts = auth()->user()->posts;
