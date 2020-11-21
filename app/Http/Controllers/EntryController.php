@@ -13,17 +13,17 @@ class EntryController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Redirect to the calendar page.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return redirect('/calendar');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new entry.
      *
      * @return \Illuminate\Http\Response
      */
@@ -35,7 +35,7 @@ class EntryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created entry in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -54,18 +54,18 @@ class EntryController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Redirect to the entry edit page.
      *
      * @param  \App\Entry  $entry
      * @return \Illuminate\Http\Response
      */
     public function show(Entry $entry)
     {
-        //
+        return redirect('/entries/' . $entry->id . '/edit');
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing entries.
      *
      * @param  \App\Entry  $entry
      * @return \Illuminate\Http\Response
@@ -76,7 +76,7 @@ class EntryController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the entry in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Entry  $entry
@@ -102,7 +102,7 @@ class EntryController extends Controller
      */
     public function destroy(Entry $entry)
     {
-        //
+        // TODO: implement this.
     }
 
     /**
@@ -111,7 +111,10 @@ class EntryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function browse() {
-        $entries = Entry::where(['user_id' => auth()->user()->id])->limit(20)->get();
+        $entries = Entry::where(['user_id' => auth()->user()->id])
+            ->orderBy('date', 'desc')
+            ->limit(20)
+            ->get();
 
         return view('browse')->with(compact('entries'));
     }
