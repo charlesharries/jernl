@@ -26,20 +26,20 @@ class BrowseTest extends TestCase
 
         $response = $this
             ->actingAs($user)
-            ->withCookies([ 'password_key' => User::generatePasswordKey('password') ])
+            ->withCookies(['password_key' => User::generatePasswordKey('password')])
             ->get('/browse');
 
         $response->assertViewIs('browse');
     }
 
     /** @test */
-    public function it_renders_out_user_entries() {
+    public function it_renders_out_user_entries()
+    {
         $user = User::factory()->create();
-        $entry = Entry::factory()->make();
+        $entry = Entry::factory()->create();
 
         $response = $this
             ->actingAs($user)
-            ->withCookies([ 'password_key' => User::generatePasswordKey('password') ])
             ->get('/browse');
 
         $response->assertSee($entry->title);
