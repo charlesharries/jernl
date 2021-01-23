@@ -14,17 +14,19 @@ require('laravel-mix-postcss-config');
  */
 
 mix
-  .js('resources/js/app.js', 'public/js')
-  .postCss('resources/css/main.css', 'public/css')
-  .postCssConfig({
-    plugins: [
-      require('postcss-import')({}),
-      require('postcss-mixins')({}),
-      require('postcss-calc')({}),
-      require('postcss-nested')({}),
-      require('postcss-color-mod-function')({}),
-      require('postcss-preset-env')({
-        stage: 1,
-      }),
-    ],
-  });
+    .js('resources/js/app.js', 'public/js')
+    .postCss('resources/css/main.css', 'public/css')
+    .postCssConfig({
+        postcssOptions: {
+            plugins: [
+                require('postcss-import')({}),
+                require('postcss-mixins')({}),
+                require('postcss-calc')({}),
+                require('postcss-nested')({}),
+                require('postcss-color-mod-function')({}),
+                require('postcss-preset-env')({
+                    stage: 1,
+                }),
+            ],
+        }
+    });
