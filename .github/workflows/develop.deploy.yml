@@ -64,7 +64,7 @@ jobs:
         uses: atymic/deployer-php-action@master
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS_DEVELOP_CHARLESHARRIES }}
+          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
       - name: Deploy
         env:
           PASSWORD: ${{ secrets.PASSWORD }}
