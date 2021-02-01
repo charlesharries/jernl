@@ -7,7 +7,7 @@ require 'recipe/rsync.php';
 
 // Project name
 set('application', 'jernl');
-set('ssh_multiplexing', true); // For perf
+// set('ssh_multiplexing', true); // For perf
 
 set('rsync_src', function () {
     return __DIR__;
