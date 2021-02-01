@@ -1,4 +1,5 @@
 <?php
+
 namespace Deployer;
 
 require 'recipe/laravel.php';
@@ -38,12 +39,12 @@ host('jernl.space')
     ->stage('production')
     ->user('charles')
     ->set('deploy_path', '/var/www/jernl.space/html');
-    
-host('develop.jernl.space')
-    ->hostname('develop.jernl.space')
+
+host('develop.jernl.charlesharri.es')
+    ->hostname('develop.jernl.charlesharri.es')
     ->stage('development')
     ->user('charles')
-    ->set('deploy_path', '/var/www/develop.jernl.space/html');
+    ->set('deploy_path', '/var/www/develop.jernl.charlesharri.es/html');
 
 after('deploy:failed', 'deploy:unlock'); // Unlock after failed deploy
 

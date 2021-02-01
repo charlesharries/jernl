@@ -69,5 +69,5 @@ jobs:
         env:
           PASSWORD: ${{ secrets.PASSWORD }}
           ENVIRONMENT: development
-          DOT_ENV: ${{ secrets.DOT_ENV_DEVELOP }}
+          DOT_ENV: ${{ secrets.DOTENV_DEVELOP_CHARLESHARRIES }}
         run: dep deploy development --tag=${{ env.GITHUB_REF }} -vvv
