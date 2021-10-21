@@ -31,7 +31,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v1
         with:
-          php-version: 7.3
+          php-version: 7.4
           extensions: mbstring, bcmath
       - name: Composer install
         run: composer install
@@ -56,7 +56,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@master
         with:
-          php-version: 7.3
+          php-version: 7.4
           extensions: mbstring, bcmath
       - name: Composer install
         run: composer install
