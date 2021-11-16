@@ -31,7 +31,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v1
         with:
-          php-version: 8.0
+          php-version: 7.4
           extensions: mbstring, bcmath
       - name: Composer install
         run: composer install
@@ -56,12 +56,12 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@master
         with:
-          php-version: 8.0
+          php-version: 7.4
           extensions: mbstring, bcmath
       - name: Composer install
         run: composer install
       - name: Set up deployer
-        uses: atymic/deployer-php-action@0.3.1
+        uses: atymic/deployer-php-action@master
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
