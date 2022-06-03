@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2|^8.0",
-        "deployer/deployer": "^7.0",
+        "deployer/deployer": "7.0.0-rc.4",
         "deployer/recipes": "^6.2",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
