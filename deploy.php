@@ -35,15 +35,13 @@ task('reload:php-fpm', function () {
 });
 
 host('jernl.space')
-    ->hostname('178.62.57.103')
-    ->stage('production')
-    ->user('charles')
+    ->setHostname('178.62.57.103')
+    ->setRemoteUser('charles')
     ->set('deploy_path', '/var/www/jernl.space/html');
 
 host('develop.jernl.charlesharri.es')
-    ->hostname('178.62.57.103')
-    ->stage('development')
-    ->user('charles')
+    ->setHostname('178.62.57.103')
+    ->setRemoteUser('charles')
     ->set('deploy_path', '/var/www/develop.jernl.charlesharri.es/html');
 
 after('deploy:failed', 'deploy:unlock'); // Unlock after failed deploy
@@ -66,6 +64,5 @@ task('deploy', [
     'artisan:migrate',      // |
     'deploy:symlink',
     'deploy:unlock',
-    'cleanup',
     'reload:php-fpm'
 ]);
