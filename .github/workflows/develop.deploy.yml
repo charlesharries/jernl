@@ -63,6 +63,7 @@ jobs:
       - name: Set up deployer
         uses: atymic/deployer-php-action@0.3.1
         with:
+          deployer-skip-install: true
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
       - name: Deploy
